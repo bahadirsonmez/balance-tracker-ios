@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,40 @@
 		7201077A25DD9F8200E54F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7201077825DD9F8200E54F0F /* Main.storyboard */; };
 		7201077C25DD9F8700E54F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7201077B25DD9F8700E54F0F /* Assets.xcassets */; };
 		7201077F25DD9F8700E54F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7201077D25DD9F8700E54F0F /* LaunchScreen.storyboard */; };
+		7201078B25DDA26C00E54F0F /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 7201078A25DDA26C00E54F0F /* KeychainAccess */; };
+		7201079125DDA2E700E54F0F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201079025DDA2E700E54F0F /* Coordinator.swift */; };
+		7201079625DDA31700E54F0F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201079525DDA31700E54F0F /* BaseCoordinator.swift */; };
+		7201079925DDA3A500E54F0F /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201079825DDA3A500E54F0F /* ApplicationCoordinator.swift */; };
+		7201079C25DDA40000E54F0F /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201079B25DDA40000E54F0F /* DependencyContainer.swift */; };
+		7201079F25DDA46100E54F0F /* CoordinatorFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201079E25DDA46100E54F0F /* CoordinatorFactoryProtocol.swift */; };
+		720107A225DDA4A200E54F0F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107A125DDA4A200E54F0F /* Router.swift */; };
+		720107A525DDA4B800E54F0F /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107A425DDA4B800E54F0F /* Presentable.swift */; };
+		720107A825DDA4E200E54F0F /* CoordinatorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107A725DDA4E200E54F0F /* CoordinatorNavigationController.swift */; };
+		720107AB25DDA51500E54F0F /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107AA25DDA51500E54F0F /* CustomBackButton.swift */; };
+		720107AE25DDA5A500E54F0F /* AuthViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107AD25DDA5A500E54F0F /* AuthViewControllerFactory.swift */; };
+		720107B125DDAADA00E54F0F /* DependencyContainer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107B025DDAADA00E54F0F /* DependencyContainer+Extension.swift */; };
+		720107B425DDAB4A00E54F0F /* LaunchInstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107B325DDAB4A00E54F0F /* LaunchInstructor.swift */; };
+		720107B925DDABBA00E54F0F /* Account+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107B825DDABBA00E54F0F /* Account+Keychain.swift */; };
+		720107BE25DDABF200E54F0F /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107BD25DDABF200E54F0F /* FadeAnimator.swift */; };
+		720107C125DDAC1500E54F0F /* CoordinatorFinishOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107C025DDAC1500E54F0F /* CoordinatorFinishOutput.swift */; };
+		720107C425DDAC2D00E54F0F /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107C325DDAC2D00E54F0F /* AlertManager.swift */; };
+		720107C725DDAC7800E54F0F /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107C625DDAC7800E54F0F /* UserDefaultHelper.swift */; };
+		720107CB25DDAFA800E54F0F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107CA25DDAFA800E54F0F /* BaseView.swift */; };
+		720107CF25DDAFD000E54F0F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107CE25DDAFD000E54F0F /* BaseViewController.swift */; };
+		720107D225DDB02100E54F0F /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107D125DDB02100E54F0F /* BaseCell.swift */; };
+		720107D525DDC7FC00E54F0F /* SetupCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107D425DDC7FB00E54F0F /* SetupCodeView.swift */; };
+		720107D825DDC83C00E54F0F /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107D725DDC83C00E54F0F /* Validator.swift */; };
+		720107DC25DDC8A900E54F0F /* UIColor+rgba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107DB25DDC8A900E54F0F /* UIColor+rgba.swift */; };
+		720107E025DDCA8A00E54F0F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107DF25DDCA8A00E54F0F /* Currency.swift */; };
+		720107E325DDCAE400E54F0F /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107E225DDCAE400E54F0F /* UILabel+extension.swift */; };
+		720107E625DDCB0E00E54F0F /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107E525DDCB0E00E54F0F /* String+localized.swift */; };
+		720107E925DDCB8700E54F0F /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107E825DDCB8700E54F0F /* UIView+extension.swift */; };
+		720107EC25DDCBDA00E54F0F /* UINavigationBar+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107EB25DDCBDA00E54F0F /* UINavigationBar+extension.swift */; };
+		720107EF25DDCC0600E54F0F /* UIViewController+presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107EE25DDCC0600E54F0F /* UIViewController+presentable.swift */; };
+		720107F225DDCC3E00E54F0F /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107F125DDCC3E00E54F0F /* UIButton+extension.swift */; };
+		720107F525DDCC5C00E54F0F /* ButtonWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107F425DDCC5C00E54F0F /* ButtonWithImage.swift */; };
+		720107F825DDCC8E00E54F0F /* UIView+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107F725DDCC8E00E54F0F /* UIView+layout.swift */; };
+		720107FB25DDCEDC00E54F0F /* CALayer+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107FA25DDCEDC00E54F0F /* CALayer+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +58,39 @@
 		7201077B25DD9F8700E54F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7201077E25DD9F8700E54F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7201078025DD9F8700E54F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7201079025DDA2E700E54F0F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		7201079525DDA31700E54F0F /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		7201079825DDA3A500E54F0F /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		7201079B25DDA40000E54F0F /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		7201079E25DDA46100E54F0F /* CoordinatorFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryProtocol.swift; sourceTree = "<group>"; };
+		720107A125DDA4A200E54F0F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		720107A425DDA4B800E54F0F /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		720107A725DDA4E200E54F0F /* CoordinatorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorNavigationController.swift; sourceTree = "<group>"; };
+		720107AA25DDA51500E54F0F /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		720107AD25DDA5A500E54F0F /* AuthViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewControllerFactory.swift; sourceTree = "<group>"; };
+		720107B025DDAADA00E54F0F /* DependencyContainer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DependencyContainer+Extension.swift"; sourceTree = "<group>"; };
+		720107B325DDAB4A00E54F0F /* LaunchInstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInstructor.swift; sourceTree = "<group>"; };
+		720107B825DDABBA00E54F0F /* Account+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+Keychain.swift"; sourceTree = "<group>"; };
+		720107BD25DDABF200E54F0F /* FadeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimator.swift; sourceTree = "<group>"; };
+		720107C025DDAC1500E54F0F /* CoordinatorFinishOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFinishOutput.swift; sourceTree = "<group>"; };
+		720107C325DDAC2D00E54F0F /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		720107C625DDAC7800E54F0F /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
+		720107CA25DDAFA800E54F0F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		720107CE25DDAFD000E54F0F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		720107D125DDB02100E54F0F /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		720107D425DDC7FB00E54F0F /* SetupCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCodeView.swift; sourceTree = "<group>"; };
+		720107D725DDC83C00E54F0F /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		720107DB25DDC8A900E54F0F /* UIColor+rgba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgba.swift"; sourceTree = "<group>"; };
+		720107DF25DDCA8A00E54F0F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		720107E225DDCAE400E54F0F /* UILabel+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
+		720107E525DDCB0E00E54F0F /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		720107E825DDCB8700E54F0F /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		720107EB25DDCBDA00E54F0F /* UINavigationBar+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+extension.swift"; sourceTree = "<group>"; };
+		720107EE25DDCC0600E54F0F /* UIViewController+presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentable.swift"; sourceTree = "<group>"; };
+		720107F125DDCC3E00E54F0F /* UIButton+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extension.swift"; sourceTree = "<group>"; };
+		720107F425DDCC5C00E54F0F /* ButtonWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithImage.swift; sourceTree = "<group>"; };
+		720107F725DDCC8E00E54F0F /* UIView+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+layout.swift"; sourceTree = "<group>"; };
+		720107FA25DDCEDC00E54F0F /* CALayer+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7201078B25DDA26C00E54F0F /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +124,104 @@
 		7201077125DD9F8200E54F0F /* balance-tracker-ios */ = {
 			isa = PBXGroup;
 			children = (
+				7201078D25DDA2A200E54F0F /* Base */,
+				7201078E25DDA2AD00E54F0F /* Flow */,
 				7201077225DD9F8200E54F0F /* AppDelegate.swift */,
 				7201077425DD9F8200E54F0F /* SceneDelegate.swift */,
-				7201077625DD9F8200E54F0F /* ViewController.swift */,
 				7201077825DD9F8200E54F0F /* Main.storyboard */,
 				7201077B25DD9F8700E54F0F /* Assets.xcassets */,
 				7201077D25DD9F8700E54F0F /* LaunchScreen.storyboard */,
 				7201078025DD9F8700E54F0F /* Info.plist */,
 			);
 			path = "balance-tracker-ios";
+			sourceTree = "<group>";
+		};
+		7201078D25DDA2A200E54F0F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				720107DA25DDC86500E54F0F /* CustomElements */,
+				720107C925DDAF9C00E54F0F /* BaseElements */,
+				720107B725DDAB9E00E54F0F /* Helpers */,
+				7201078F25DDA2C800E54F0F /* Coordinator */,
+				720107B625DDAB5F00E54F0F /* Extensions */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		7201078E25DDA2AD00E54F0F /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				7201077625DD9F8200E54F0F /* ViewController.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		7201078F25DDA2C800E54F0F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7201079025DDA2E700E54F0F /* Coordinator.swift */,
+				7201079525DDA31700E54F0F /* BaseCoordinator.swift */,
+				7201079825DDA3A500E54F0F /* ApplicationCoordinator.swift */,
+				7201079B25DDA40000E54F0F /* DependencyContainer.swift */,
+				7201079E25DDA46100E54F0F /* CoordinatorFactoryProtocol.swift */,
+				720107A125DDA4A200E54F0F /* Router.swift */,
+				720107A425DDA4B800E54F0F /* Presentable.swift */,
+				720107A725DDA4E200E54F0F /* CoordinatorNavigationController.swift */,
+				720107AA25DDA51500E54F0F /* CustomBackButton.swift */,
+				720107AD25DDA5A500E54F0F /* AuthViewControllerFactory.swift */,
+				720107B025DDAADA00E54F0F /* DependencyContainer+Extension.swift */,
+				720107B325DDAB4A00E54F0F /* LaunchInstructor.swift */,
+				720107BD25DDABF200E54F0F /* FadeAnimator.swift */,
+				720107C025DDAC1500E54F0F /* CoordinatorFinishOutput.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		720107B625DDAB5F00E54F0F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				720107DB25DDC8A900E54F0F /* UIColor+rgba.swift */,
+				720107E225DDCAE400E54F0F /* UILabel+extension.swift */,
+				720107E525DDCB0E00E54F0F /* String+localized.swift */,
+				720107E825DDCB8700E54F0F /* UIView+extension.swift */,
+				720107EB25DDCBDA00E54F0F /* UINavigationBar+extension.swift */,
+				720107EE25DDCC0600E54F0F /* UIViewController+presentable.swift */,
+				720107F125DDCC3E00E54F0F /* UIButton+extension.swift */,
+				720107F725DDCC8E00E54F0F /* UIView+layout.swift */,
+				720107FA25DDCEDC00E54F0F /* CALayer+extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		720107B725DDAB9E00E54F0F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				720107B825DDABBA00E54F0F /* Account+Keychain.swift */,
+				720107C325DDAC2D00E54F0F /* AlertManager.swift */,
+				720107C625DDAC7800E54F0F /* UserDefaultHelper.swift */,
+				720107D725DDC83C00E54F0F /* Validator.swift */,
+				720107DF25DDCA8A00E54F0F /* Currency.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		720107C925DDAF9C00E54F0F /* BaseElements */ = {
+			isa = PBXGroup;
+			children = (
+				720107CA25DDAFA800E54F0F /* BaseView.swift */,
+				720107CE25DDAFD000E54F0F /* BaseViewController.swift */,
+				720107D125DDB02100E54F0F /* BaseCell.swift */,
+				720107D425DDC7FB00E54F0F /* SetupCodeView.swift */,
+			);
+			path = BaseElements;
+			sourceTree = "<group>";
+		};
+		720107DA25DDC86500E54F0F /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				720107F425DDCC5C00E54F0F /* ButtonWithImage.swift */,
+			);
+			path = CustomElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +240,9 @@
 			dependencies = (
 			);
 			name = "balance-tracker-ios";
+			packageProductDependencies = (
+				7201078A25DDA26C00E54F0F /* KeychainAccess */,
+			);
 			productName = "balance-tracker-ios";
 			productReference = 7201076F25DD9F8200E54F0F /* balance-tracker-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +270,9 @@
 				Base,
 			);
 			mainGroup = 7201076625DD9F8200E54F0F;
+			packageReferences = (
+				7201078925DDA26C00E54F0F /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 7201077025DD9F8200E54F0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,9 +300,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				720107E925DDCB8700E54F0F /* UIView+extension.swift in Sources */,
+				720107B125DDAADA00E54F0F /* DependencyContainer+Extension.swift in Sources */,
+				720107F225DDCC3E00E54F0F /* UIButton+extension.swift in Sources */,
+				720107EF25DDCC0600E54F0F /* UIViewController+presentable.swift in Sources */,
+				7201079C25DDA40000E54F0F /* DependencyContainer.swift in Sources */,
+				720107F525DDCC5C00E54F0F /* ButtonWithImage.swift in Sources */,
+				7201079625DDA31700E54F0F /* BaseCoordinator.swift in Sources */,
+				720107D225DDB02100E54F0F /* BaseCell.swift in Sources */,
+				720107A825DDA4E200E54F0F /* CoordinatorNavigationController.swift in Sources */,
+				720107D525DDC7FC00E54F0F /* SetupCodeView.swift in Sources */,
+				7201079F25DDA46100E54F0F /* CoordinatorFactoryProtocol.swift in Sources */,
+				720107FB25DDCEDC00E54F0F /* CALayer+extension.swift in Sources */,
+				720107E625DDCB0E00E54F0F /* String+localized.swift in Sources */,
+				720107B925DDABBA00E54F0F /* Account+Keychain.swift in Sources */,
+				720107C725DDAC7800E54F0F /* UserDefaultHelper.swift in Sources */,
+				720107E025DDCA8A00E54F0F /* Currency.swift in Sources */,
+				720107DC25DDC8A900E54F0F /* UIColor+rgba.swift in Sources */,
+				720107EC25DDCBDA00E54F0F /* UINavigationBar+extension.swift in Sources */,
+				720107C125DDAC1500E54F0F /* CoordinatorFinishOutput.swift in Sources */,
+				720107A525DDA4B800E54F0F /* Presentable.swift in Sources */,
 				7201077725DD9F8200E54F0F /* ViewController.swift in Sources */,
+				720107C425DDAC2D00E54F0F /* AlertManager.swift in Sources */,
+				720107F825DDCC8E00E54F0F /* UIView+layout.swift in Sources */,
+				720107BE25DDABF200E54F0F /* FadeAnimator.swift in Sources */,
+				720107A225DDA4A200E54F0F /* Router.swift in Sources */,
+				720107CF25DDAFD000E54F0F /* BaseViewController.swift in Sources */,
 				7201077325DD9F8200E54F0F /* AppDelegate.swift in Sources */,
+				720107B425DDAB4A00E54F0F /* LaunchInstructor.swift in Sources */,
+				720107E325DDCAE400E54F0F /* UILabel+extension.swift in Sources */,
 				7201077525DD9F8200E54F0F /* SceneDelegate.swift in Sources */,
+				720107AB25DDA51500E54F0F /* CustomBackButton.swift in Sources */,
+				7201079125DDA2E700E54F0F /* Coordinator.swift in Sources */,
+				720107CB25DDAFA800E54F0F /* BaseView.swift in Sources */,
+				720107D825DDC83C00E54F0F /* Validator.swift in Sources */,
+				7201079925DDA3A500E54F0F /* ApplicationCoordinator.swift in Sources */,
+				720107AE25DDA5A500E54F0F /* AuthViewControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -341,6 +537,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7201078925DDA26C00E54F0F /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7201078A25DDA26C00E54F0F /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7201078925DDA26C00E54F0F /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7201076725DD9F8200E54F0F /* Project object */;
 }
