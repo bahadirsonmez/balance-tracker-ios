@@ -1,1 +1,1 @@
-# balance-tracker-ios
+# Balance Tracker
