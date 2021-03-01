@@ -10,13 +10,17 @@ import UIKit
 //import Lottie
 
 class BaseViewController: UIViewController, CoordinatorNavigationControllerDelegate {
+    let account = KeychainAccount.sharedAccount
+    let fonts = Constants.Fonts.self
+    let colors = Constants.Colors.self
+    let shadow = Constants.Shadow.self
+    let texts = Constants.Texts.self
 
     var onForceLogout: (() -> Void)?
 
 //    var activityIndicatorView: ActivityIndicatorView!
 //    var loadingView: LoadingView!
 //    var messageView = MessageView()
-    var account = Account.sharedAccount.self
 
     //let analytics = AnalyticManager.sharedInstance
     // MARK: - Controller lifecycle

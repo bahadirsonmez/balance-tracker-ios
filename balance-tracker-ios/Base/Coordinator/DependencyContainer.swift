@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import Alamofire
+import Alamofire
 
 typealias Factory = CoordinatorFactoryProtocol & ViewControllerFactory
 //typealias SubViewControllerFactory = AccountControllerFactory
@@ -32,11 +32,9 @@ class DependencyContainer {
     // MARK: Network services
 
 //    lazy var loginManager = LoginAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
-//    lazy var eventManager = EventAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
-//    lazy var contactsManager = ContactsAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
-//    lazy var giftsManager = GiftsAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
-//    lazy var lcvManager = LCVAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
-//    lazy var accountManager = AccountAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
+    lazy var balanceManager = BalanceAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
+    lazy var accountManager = AccountAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
+    lazy var profileManager = ProfileAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
 
     // MARK: - Public func
 
@@ -64,7 +62,7 @@ class DependencyContainer {
                                            smallTextFont: Constants.Fonts.medium17,
                                            isTranslucent: true,
                                            barTintColor: Constants.Colors.backgroundColor)
-        self.rootController.customizeBackButton(backButtonImage: UIImage(named: "goBack"),
+        self.rootController.customizeBackButton(backButtonImage: UIImage(systemName: "arrow.backward"),
                                       backButtonTitle: "",
                                       backButtonfont: UIFont.systemFont(ofSize: 15, weight: .bold),
                                       backButtonTitleColor: .white,
@@ -85,32 +83,31 @@ extension DependencyContainer: CoordinatorFactoryProtocol {
     func instantiateApplicationCoordinator() -> ApplicationCoordinator {
         return ApplicationCoordinator(router: Router(rootController: rootController), factory: self as Factory, launchInstructor: LaunchInstructor.configure())
     }
-
-    func instantiateAuthCoordinator(router: RouterProtocol) -> AuthCoordinator {
-        return AuthCoordinator(router: router, factory: self as Factory)
-    }
+//    func instantiateAuthCoordinator(router: RouterProtocol) -> AuthCoordinator {
+//        return AuthCoordinator(router: router, factory: self as Factory)
+//    }
 
     func instantiateTabBarCoordinator(router: RouterProtocol) -> MainTabBarCoordinator {
         return MainTabBarCoordinator(router: router, factory: self as Factory)
     }
 
-    func instantiateLCVCoordinator(router: RouterProtocol) -> LCVCoordinator {
-        return LCVCoordinator(controller: LCVViewController(), router: router, factory: self as Factory)
+    func instantiateBalanceCoordinator(router: RouterProtocol) -> BalanceCoordinator {
+        return BalanceCoordinator(controller: BalanceViewController(), router: router, factory: self as Factory)
     }
 
     func instantiateAccountCoordinator(router: RouterProtocol) -> AccountCoordinator {
         return AccountCoordinator(controller: AccountViewController(), router: router, factory: self as Factory)
     }
 
-    func instantiateGoogleMapCoordinator(router: RouterProtocol) -> GoogleMapCoordinator {
-        return GoogleMapCoordinator(controller: GoogleMapViewController(), router: router, factory: self as Factory)
+    func instantiateProfileMapCoordinator(router: RouterProtocol) -> ProfileCoordinator {
+        return ProfileCoordinator(controller: ProfileViewController(), router: router, factory: self as Factory)
     }
 
     func makeCoordinators(routers: [RouterProtocol]) -> [Coordinator & CoordinatorFinishOutput] {
         if routers.count != 1 {
             return []
         }else {
-            let mapCoordinator = instantiateLCVCoordinator(router: routers[0])
+            let mapCoordinator = instantiateBalanceCoordinator(router: routers[0])
 
             return[mapCoordinator]
         }

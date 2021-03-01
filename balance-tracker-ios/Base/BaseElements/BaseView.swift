@@ -8,11 +8,11 @@
 import UIKit
 
 class BaseView: UIView {
-    let account = Account.sharedAccount
-//    let fonts = Constants.Fonts.self
-//    let colors = Constants.Colors.self
-//    let shadow = Constants.Shadows.self
-//    let texts = Constants.Texts.self
+    let account = KeychainAccount.sharedAccount
+    let fonts = Constants.Fonts.self
+    let colors = Constants.Colors.self
+    let shadow = Constants.Shadow.self
+    let texts = Constants.Texts.self
 
     override init(frame: CGRect) {
         super.init(frame: frame)

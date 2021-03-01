@@ -6,7 +6,7 @@
 //
 import KeychainAccess
 
-public class Account {
+public class KeychainAccount {
     public let AnonymousAccountKeychainService = "AnonymousAccountKeychainService"
     public let AnonymousAccountAccessTokenKeychainKey = "anonymous_access_token"
 
@@ -26,7 +26,7 @@ public class Account {
     public let FCMTokenKeychainService = "FCMTokenKeychainService"
     public let FCMTokenKeychainKey = "fcm_token"
 
-    public static let sharedAccount = Account()
+    public static let sharedAccount = KeychainAccount()
 
     public var isLoggedin: Bool? {
         if accessToken != nil {
@@ -185,7 +185,7 @@ public class Account {
 
     public var isLoggedIn: Bool {
         get {
-            if Account.sharedAccount.accessToken == nil {
+            if KeychainAccount.sharedAccount.accessToken == nil {
                 return false
             }else {
                 return true

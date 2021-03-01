@@ -44,7 +44,6 @@ extension UILabel {
         backgroundColor = style.backgroundColor
         font = style.font
         textAlignment = style.textAlignment
-        lineBreakMode = style.lineBreakMode
         backgroundColor = style.backgroundColor
         numberOfLines = style.numberOfLines ?? 0
         textColor = style.textColor
@@ -58,19 +57,20 @@ extension UILabel {
     struct Style {
         let font: UIFont
         let textAlignment: NSTextAlignment
-        let lineBreakMode: NSLineBreakMode
         let backgroundColor: UIColor?
         let numberOfLines: Int?
         let textColor: UIColor
 
-        init(font: UIFont?, textAlignment: NSTextAlignment, lineBreakMode: NSLineBreakMode,
-             backgroundColor: UIColor?, numberOfLines: Int?, textColor: UIColor) {
-            self.font = font ?? Constants.Fonts.semibold24
-            self.textAlignment = textAlignment
-            self.lineBreakMode = lineBreakMode
+        init(font: UIFont? = Constants.Fonts.regular16,
+             textAlignment: NSTextAlignment? = .center,
+             backgroundColor: UIColor? = .clear,
+             numberOfLines: Int? = 0,
+             textColor: UIColor? = Constants.Colors.mainTextColor) {
+            self.font = font ?? Constants.Fonts.regular16
+            self.textAlignment = textAlignment ?? .center
             self.backgroundColor = backgroundColor ?? .clear
             self.numberOfLines = numberOfLines ?? 0
-            self.textColor = textColor
+            self.textColor = textColor ?? Constants.Colors.mainTextColor
         }
     }
 }

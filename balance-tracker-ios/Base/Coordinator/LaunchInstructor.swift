@@ -22,15 +22,15 @@ enum LaunchInstructor {
         //let tutorialWasShown = defaults.bool(forKey: "tutorialWasShown")
         let tutorialWasShown = true
 
-        if Account.sharedAccount.accessToken != nil {
+        if KeychainAccount.sharedAccount.accessToken != nil {
             isAutorized = true
         }else {
             isAutorized = false
         }
 
         switch (tutorialWasShown, isAutorized) {
-            case (true, false): return .auth
-            case (false, true), (false, false): return .onboarding
+            case (true, false): return .main
+            case (false, true), (false, false): return .main
             case (true, true): return .main
         }
     }

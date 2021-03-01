@@ -7,11 +7,9 @@
 import UIKit
 
 class BaseCell: UICollectionViewCell {
-//    let font = Constants.Fonts.self
-//    let colors = Constants.Colors.self
-//    let buttonTitle = Constants.ButtonTitles.self
-//    let constraint = Constants.Constraints.self
-//    let shadow = Constants.Shadows.self
+    let font = Constants.Fonts.self
+    let colors = Constants.Colors.self
+    let shadow = Constants.Shadow.self
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,6 +26,10 @@ class BaseCell: UICollectionViewCell {
 }
 
 class BaseHeader: UICollectionReusableView {
+    let font = Constants.Fonts.self
+    let colors = Constants.Colors.self
+    let shadow = Constants.Shadow.self
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()

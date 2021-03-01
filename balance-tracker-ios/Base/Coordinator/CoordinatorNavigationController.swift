@@ -39,7 +39,7 @@ class CoordinatorNavigationController: UINavigationController {
         self.navigationBar.tintColor = .black
         self.transitioningDelegate = self
         self.navigationBar.isTranslucent = true
-//        self.navigationBar.barTintColor = .white
+        self.navigationBar.barTintColor = .white
     }
 
     // MARK: - Public methods
