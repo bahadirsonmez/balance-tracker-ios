@@ -7,7 +7,8 @@
 protocol AuthViewControllerFactory {
 //    func instantiateOnboardingViewController() -> OnboardingViewController
 //    func instantiateWelcomeViewController() -> WelcomeViewController
-//    func instantiateLoginViewController() -> LoginViewController
+    func instantiateLoginViewController() -> LoginViewController
+    func instantiateRegisterViewController() -> RegisterViewController
 //    func instantiateSMSViewController() -> SMSViewController
     //func instantiateOnboardingViewController() -> OnboardingController
 }

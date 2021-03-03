@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class DonutChartView: BaseView, SetupCodeView, ChartViewDelegate {
+class DonutChartView: BaseCell, SetupCodeView, ChartViewDelegate {
     var viewModel: BalanceViewModel!
 
     lazy var chart: PieChartView = {

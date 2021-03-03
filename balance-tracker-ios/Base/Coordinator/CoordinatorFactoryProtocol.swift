@@ -8,7 +8,7 @@ import UIKit
 
 protocol CoordinatorFactoryProtocol {
     func instantiateApplicationCoordinator() -> ApplicationCoordinator
-//    func instantiateAuthCoordinator(router: RouterProtocol) -> AuthCoordinator
+    func instantiateAuthCoordinator(router: RouterProtocol) -> AuthCoordinator
     func instantiateTabBarCoordinator(router: RouterProtocol) -> MainTabBarCoordinator
     //func instantiateOnboardingCoordinator(router: RouterProtocol) -> OnboardingCoordinator
 

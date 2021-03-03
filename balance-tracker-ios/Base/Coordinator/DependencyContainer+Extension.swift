@@ -7,26 +7,18 @@
 import UIKit
 
 extension DependencyContainer: AuthViewControllerFactory {
-//    func instantiateOnboardingViewController() -> OnboardingViewController {
-//        let vc = OnboardingViewController()
-//        return vc
-//    }
-//    func instantiateWelcomeViewController() -> WelcomeViewController {
-//        let welcomeVC = WelcomeViewController()
-//        return welcomeVC
-//    }
-//
-//    func instantiateLoginViewController() -> LoginViewController {
-//        let loginVM = LoginViewModel(manager: self.loginManager)
-//        let loginVC = LoginViewController(with: loginVM)
-//        return loginVC
-//    }
 
-//    func instantiateSMSViewController() -> SMSViewController {
-//        let loginVM = LoginViewModel(manager: self.loginManager)
-//        let smsVC = SMSViewController(with: loginVM)
-//        return smsVC
-//    }
+    func instantiateLoginViewController() -> LoginViewController {
+        let loginVM = LoginViewModel(manager: self.loginManager)
+        let loginVC = LoginViewController(with: loginVM)
+        return loginVC
+    }
+
+    func instantiateRegisterViewController() -> RegisterViewController {
+        let loginVM = LoginViewModel(manager: self.loginManager)
+        let registerVC = RegisterViewController(with: loginVM)
+        return registerVC
+    }
 }
 
 extension DependencyContainer: TabBarControllerFactory {

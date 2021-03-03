@@ -11,14 +11,10 @@ class BalanceView: UIView {
 
     var safeArea = UILayoutGuide()
     let cellId = "cellId"
+    let chartViewId = "chartViewId"
     let headerId = "headerId"
 
     var rowTapped : ((Int) -> Void)?
-
-    lazy var chartView: DonutChartView = {
-        let view = DonutChartView()
-        return view
-    }()
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -47,30 +43,25 @@ class BalanceView: UIView {
             self.collectionView.delegate = self
             self.collectionView.register(BalanceCell.self,
                                          forCellWithReuseIdentifier: self.cellId)
+            self.collectionView.register(DonutChartView.self,
+                                         forCellWithReuseIdentifier: self.chartViewId)
             self.collectionView.register(BalanceHeader.self,
                                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                     withReuseIdentifier: self.headerId)
             self.collectionView.reloadData()
-            self.chartView.loadView(with: self.viewModel)
         }
     }
 }
 
 extension BalanceView: SetupCodeView {
     func buildViewHierarchy() {
-        self.addSubviews(chartView, collectionView)
+        self.addSubviews(collectionView)
     }
 
     func setupConstraints() {
         safeArea = self.safeAreaLayoutGuide
-        chartView.anchor(
-            top: safeArea.topAnchor,
-            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
-            size: .init(width: 350, height: 350)
-        )
-        chartView.centerX(to: self)
         collectionView.anchor(
-            top: chartView.bottomAnchor,
+            top: safeArea.topAnchor,
             leading: safeArea.leadingAnchor,
             bottom: safeArea.bottomAnchor,
             trailing: safeArea.trailingAnchor,
@@ -85,18 +76,31 @@ extension BalanceView: SetupCodeView {
 
 extension BalanceView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.numberOfItems
+        switch section {
+        case 0:
+            return 1
+        default:
+            return self.viewModel.numberOfItems
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId,
-                                                      for: indexPath) as!  BalanceCell
-        cell.setupCell(with: (viewModel.binanceBalances[indexPath.row]))
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: chartViewId,
+                                                          for: indexPath) as!  DonutChartView
+            cell.loadView(with: self.viewModel)
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId,
+                                                          for: indexPath) as!  BalanceCell
+            cell.setupCell(with: (viewModel.binanceBalances[indexPath.row]))
+            return cell
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -106,8 +110,13 @@ extension BalanceView: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 20,
-                      height: 70)
+        switch indexPath.section {
+        case 0:
+            return CGSize(width: 300, height: 300)
+        default:
+            return CGSize(width: collectionView.frame.width - 20,
+                          height: 70)
+        }
     }
 
     // MARK: - CollectionView Header
@@ -117,8 +126,8 @@ extension BalanceView: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                             withReuseIdentifier: headerId,
-                                                                             for: indexPath)  as! BalanceHeader
+                                                                                 withReuseIdentifier: headerId,
+                                                                                 for: indexPath)  as! BalanceHeader
             return headerView
         default:
             fatalError("Unexpected element kind")
@@ -129,6 +138,11 @@ extension BalanceView: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 50)
+        switch section {
+        case 0:
+            return .zero
+        default:
+            return CGSize(width: collectionView.frame.size.width, height: 50)
+        }
     }
 }

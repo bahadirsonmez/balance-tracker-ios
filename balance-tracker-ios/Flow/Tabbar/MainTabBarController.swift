@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainTabBarController: UITabBarController {
 
@@ -14,6 +15,7 @@ class MainTabBarController: UITabBarController {
     var toProfile: (() -> Void)?
 
     var duration = 0.0
+    var handle: Auth!
 
     private let defaults = UserDefaults.standard
 
@@ -36,10 +38,15 @@ class MainTabBarController: UITabBarController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            print(auth)
+            print(user)
+        } as? Auth
         super.viewDidAppear(animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(handle)
         super.viewWillDisappear(animated)
     }
 

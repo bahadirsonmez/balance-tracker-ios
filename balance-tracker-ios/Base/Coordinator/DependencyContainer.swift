@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import FirebaseAuth
 
 typealias Factory = CoordinatorFactoryProtocol & ViewControllerFactory
 //typealias SubViewControllerFactory = AccountControllerFactory
@@ -31,6 +32,7 @@ class DependencyContainer {
 
     // MARK: Network services
 
+    lazy var loginManager = Auth.auth()
 //    lazy var loginManager = LoginAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
     lazy var balanceManager = BalanceAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
     lazy var accountManager = AccountAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
@@ -83,9 +85,9 @@ extension DependencyContainer: CoordinatorFactoryProtocol {
     func instantiateApplicationCoordinator() -> ApplicationCoordinator {
         return ApplicationCoordinator(router: Router(rootController: rootController), factory: self as Factory, launchInstructor: LaunchInstructor.configure())
     }
-//    func instantiateAuthCoordinator(router: RouterProtocol) -> AuthCoordinator {
-//        return AuthCoordinator(router: router, factory: self as Factory)
-//    }
+    func instantiateAuthCoordinator(router: RouterProtocol) -> AuthCoordinator {
+        return AuthCoordinator(router: router, factory: self as Factory)
+    }
 
     func instantiateTabBarCoordinator(router: RouterProtocol) -> MainTabBarCoordinator {
         return MainTabBarCoordinator(router: router, factory: self as Factory)

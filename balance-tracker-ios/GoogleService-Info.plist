@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>845553069462-6dtv8qcoqd2o28tqamebtdnhl8m5iibf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.845553069462-6dtv8qcoqd2o28tqamebtdnhl8m5iibf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBr7m3YZ8tAonefYUmrWZEX5mGsI7b7jOA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>845553069462</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>bahadirovski.balance-tracker-ios</string>
+	<key>PROJECT_ID</key>
+	<string>balance-tracker-ios</string>
+	<key>STORAGE_BUCKET</key>
+	<string>balance-tracker-ios.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:845553069462:ios:73c9a1838362fe0b1241b7</string>
+</dict>
+</plist>

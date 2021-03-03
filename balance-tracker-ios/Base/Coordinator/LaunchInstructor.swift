@@ -10,7 +10,6 @@ enum LaunchInstructor {
 
     case main
     case auth
-    case onboarding
 
     // MARK: - Public methods
 
@@ -20,7 +19,7 @@ enum LaunchInstructor {
 
         //let defaults = UserDefaults.standard
         //let tutorialWasShown = defaults.bool(forKey: "tutorialWasShown")
-        let tutorialWasShown = true
+//        let tutorialWasShown = true
 
         if KeychainAccount.sharedAccount.accessToken != nil {
             isAutorized = true
@@ -28,10 +27,16 @@ enum LaunchInstructor {
             isAutorized = false
         }
 
-        switch (tutorialWasShown, isAutorized) {
-            case (true, false): return .main
-            case (false, true), (false, false): return .main
-            case (true, true): return .main
+//        switch (tutorialWasShown, isAutorized) {
+//            case (true, false): return .auth
+//            case (false, true), (false, false): return .auth
+//            case (true, true): return .main
+//        }
+        switch isAutorized {
+        case true:
+            return .main
+        default:
+            return .auth
         }
     }
 }

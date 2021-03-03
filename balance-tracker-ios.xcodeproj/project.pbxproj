@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6749B6AEAFE3A7B2C3566DAC /* Pods_balance_tracker_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D9457704C58B66AD472495 /* Pods_balance_tracker_ios.framework */; };
 		7201077325DD9F8200E54F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201077225DD9F8200E54F0F /* AppDelegate.swift */; };
 		7201077725DD9F8200E54F0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201077625DD9F8200E54F0F /* ViewController.swift */; };
 		7201077A25DD9F8200E54F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7201077825DD9F8200E54F0F /* Main.storyboard */; };
@@ -46,6 +47,8 @@
 		720107F525DDCC5C00E54F0F /* ButtonWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107F425DDCC5C00E54F0F /* ButtonWithImage.swift */; };
 		720107F825DDCC8E00E54F0F /* UIView+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107F725DDCC8E00E54F0F /* UIView+layout.swift */; };
 		720107FB25DDCEDC00E54F0F /* CALayer+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107FA25DDCEDC00E54F0F /* CALayer+extension.swift */; };
+		7298AE4225F0173400336094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7298AE4125F0173400336094 /* GoogleService-Info.plist */; };
+		7298AE6925F0216100336094 /* UIButton+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7298AE6825F0216100336094 /* UIButton+style.swift */; };
 		72AB045B25DF1C14001F4FAB /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 72AB045A25DF1C14001F4FAB /* SwiftMessages */; };
 		72AB045E25DF1C39001F4FAB /* UIViewController+alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AB045D25DF1C39001F4FAB /* UIViewController+alerts.swift */; };
 		72AB046125DF1C4A001F4FAB /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AB046025DF1C4A001F4FAB /* UIViewController+extension.swift */; };
@@ -83,6 +86,14 @@
 		72CEA24E25E116310073BE52 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA24D25E116310073BE52 /* ProfileCoordinator.swift */; };
 		72CEA25025E116740073BE52 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA24F25E116740073BE52 /* ProfileRouter.swift */; };
 		72CEA25225E116840073BE52 /* ProfileAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA25125E116840073BE52 /* ProfileAPIManager.swift */; };
+		72DCBDA225EED05700BD3AFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCBDA125EED05700BD3AFC /* LoginViewController.swift */; };
+		72DCBDA425EED06200BD3AFC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCBDA325EED06200BD3AFC /* RegisterViewController.swift */; };
+		72DCBDA625EED07500BD3AFC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCBDA525EED07500BD3AFC /* LoginView.swift */; };
+		72DCBDA825EED07D00BD3AFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCBDA725EED07D00BD3AFC /* RegisterView.swift */; };
+		72DCBDAA25EED09700BD3AFC /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCBDA925EED09700BD3AFC /* LoginViewModel.swift */; };
+		72DCBDAC25EED0B100BD3AFC /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCBDAB25EED0B100BD3AFC /* AuthCoordinator.swift */; };
+		72DCBDAE25EED0C900BD3AFC /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCBDAD25EED0C900BD3AFC /* LoginRouter.swift */; };
+		72DCBDB725EED52600BD3AFC /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCBDB625EED52600BD3AFC /* AppTextField.swift */; };
 		72E56A0025EA763100B136D8 /* BinanceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E569FF25EA763100B136D8 /* BinanceAPI.swift */; };
 		72E56A0325EA776900B136D8 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 72E56A0225EA776900B136D8 /* CryptoSwift */; };
 		72E56A0625EA891500B136D8 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 72E56A0525EA891500B136D8 /* Charts */; };
@@ -106,6 +117,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		66D9457704C58B66AD472495 /* Pods_balance_tracker_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_balance_tracker_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7201076F25DD9F8200E54F0F /* balance-tracker-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "balance-tracker-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7201077225DD9F8200E54F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7201077625DD9F8200E54F0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +158,8 @@
 		720107F425DDCC5C00E54F0F /* ButtonWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithImage.swift; sourceTree = "<group>"; };
 		720107F725DDCC8E00E54F0F /* UIView+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+layout.swift"; sourceTree = "<group>"; };
 		720107FA25DDCEDC00E54F0F /* CALayer+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+extension.swift"; sourceTree = "<group>"; };
+		7298AE4125F0173400336094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7298AE6825F0216100336094 /* UIButton+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+style.swift"; sourceTree = "<group>"; };
 		72AB045D25DF1C39001F4FAB /* UIViewController+alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alerts.swift"; sourceTree = "<group>"; };
 		72AB046025DF1C4A001F4FAB /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		72AB046725DF203C001F4FAB /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -181,11 +195,21 @@
 		72CEA24D25E116310073BE52 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		72CEA24F25E116740073BE52 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		72CEA25125E116840073BE52 /* ProfileAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPIManager.swift; sourceTree = "<group>"; };
+		72DCBDA125EED05700BD3AFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		72DCBDA325EED06200BD3AFC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		72DCBDA525EED07500BD3AFC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		72DCBDA725EED07D00BD3AFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		72DCBDA925EED09700BD3AFC /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		72DCBDAB25EED0B100BD3AFC /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		72DCBDAD25EED0C900BD3AFC /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		72DCBDB625EED52600BD3AFC /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		72E569FF25EA763100B136D8 /* BinanceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceAPI.swift; sourceTree = "<group>"; };
 		72E56A0725EAA95700B136D8 /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
 		72E56A0925EAAB8100B136D8 /* BalanceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceHeader.swift; sourceTree = "<group>"; };
 		72FB6D9625E2DA5200E5289C /* DonutChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartView.swift; sourceTree = "<group>"; };
 		72FB6D9825E2DA6C00E5289C /* BalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCell.swift; sourceTree = "<group>"; };
+		C037DEFDF81622B63B5308D4 /* Pods-balance-tracker-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-balance-tracker-ios.debug.xcconfig"; path = "Target Support Files/Pods-balance-tracker-ios/Pods-balance-tracker-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		DA40061C240A70D3C317EB3E /* Pods-balance-tracker-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-balance-tracker-ios.release.xcconfig"; path = "Target Support Files/Pods-balance-tracker-ios/Pods-balance-tracker-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +222,7 @@
 				72E56A0325EA776900B136D8 /* CryptoSwift in Frameworks */,
 				72AB045B25DF1C14001F4FAB /* SwiftMessages in Frameworks */,
 				7201078B25DDA26C00E54F0F /* KeychainAccess in Frameworks */,
+				6749B6AEAFE3A7B2C3566DAC /* Pods_balance_tracker_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +234,8 @@
 			children = (
 				7201077125DD9F8200E54F0F /* balance-tracker-ios */,
 				7201077025DD9F8200E54F0F /* Products */,
+				9B8ECBE42DB34FF6BA967F30 /* Pods */,
+				C976B2C4011B9FB6FFD504BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,6 +257,7 @@
 				7201077B25DD9F8700E54F0F /* Assets.xcassets */,
 				7201077D25DD9F8700E54F0F /* LaunchScreen.storyboard */,
 				7201078025DD9F8700E54F0F /* Info.plist */,
+				7298AE4125F0173400336094 /* GoogleService-Info.plist */,
 			);
 			path = "balance-tracker-ios";
 			sourceTree = "<group>";
@@ -251,6 +279,7 @@
 		7201078E25DDA2AD00E54F0F /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				72DCBD9D25EECFEC00BD3AFC /* Auth */,
 				72AB046625DF2026001F4FAB /* Tabbar */,
 				72CEA1D925DFA5310073BE52 /* Balance */,
 				72CEA21D25DFEA6D0073BE52 /* Account */,
@@ -296,6 +325,7 @@
 				72AB045D25DF1C39001F4FAB /* UIViewController+alerts.swift */,
 				72AB046025DF1C4A001F4FAB /* UIViewController+extension.swift */,
 				72E56A0725EAA95700B136D8 /* UIColor+random.swift */,
+				7298AE6825F0216100336094 /* UIButton+style.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,6 +360,7 @@
 				720107F425DDCC5C00E54F0F /* ButtonWithImage.swift */,
 				72CEA21725DFCBF00073BE52 /* BasicCell.swift */,
 				72CEA21A25DFE7E70073BE52 /* BasicHeader.swift */,
+				72DCBDB625EED52600BD3AFC /* AppTextField.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -554,6 +585,77 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		72DCBD9D25EECFEC00BD3AFC /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				72DCBDB525EED0F900BD3AFC /* ViewController */,
+				72DCBDB425EED0F300BD3AFC /* View */,
+				72DCBDB325EED0EB00BD3AFC /* ViewModel */,
+				72DCBDB225EED0E400BD3AFC /* Coordinator */,
+				72DCBDB125EED0DC00BD3AFC /* Request */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		72DCBDB125EED0DC00BD3AFC /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				72DCBDAD25EED0C900BD3AFC /* LoginRouter.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		72DCBDB225EED0E400BD3AFC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				72DCBDAB25EED0B100BD3AFC /* AuthCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		72DCBDB325EED0EB00BD3AFC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				72DCBDA925EED09700BD3AFC /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		72DCBDB425EED0F300BD3AFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				72DCBDA525EED07500BD3AFC /* LoginView.swift */,
+				72DCBDA725EED07D00BD3AFC /* RegisterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		72DCBDB525EED0F900BD3AFC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				72DCBDA125EED05700BD3AFC /* LoginViewController.swift */,
+				72DCBDA325EED06200BD3AFC /* RegisterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9B8ECBE42DB34FF6BA967F30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C037DEFDF81622B63B5308D4 /* Pods-balance-tracker-ios.debug.xcconfig */,
+				DA40061C240A70D3C317EB3E /* Pods-balance-tracker-ios.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C976B2C4011B9FB6FFD504BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66D9457704C58B66AD472495 /* Pods_balance_tracker_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -561,10 +663,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7201078325DD9F8700E54F0F /* Build configuration list for PBXNativeTarget "balance-tracker-ios" */;
 			buildPhases = (
+				BBA195F006F9A6686DC6FDC1 /* [CP] Check Pods Manifest.lock */,
 				7201076B25DD9F8200E54F0F /* Sources */,
 				7201076C25DD9F8200E54F0F /* Frameworks */,
 				7201076D25DD9F8200E54F0F /* Resources */,
 				72CEA23625E105B40073BE52 /* Embed Frameworks */,
+				6AD578C8FED143A4FCEA4C57 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -627,12 +731,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				7201077F25DD9F8700E54F0F /* LaunchScreen.storyboard in Resources */,
+				7298AE4225F0173400336094 /* GoogleService-Info.plist in Resources */,
 				7201077C25DD9F8700E54F0F /* Assets.xcassets in Resources */,
 				7201077A25DD9F8200E54F0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6AD578C8FED143A4FCEA4C57 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-balance-tracker-ios/Pods-balance-tracker-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-balance-tracker-ios/Pods-balance-tracker-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-balance-tracker-ios/Pods-balance-tracker-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBA195F006F9A6686DC6FDC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-balance-tracker-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7201076B25DD9F8200E54F0F /* Sources */ = {
@@ -643,17 +790,21 @@
 				72CEA1F425DFA6A60073BE52 /* Constants+text.swift in Sources */,
 				720107E925DDCB8700E54F0F /* UIView+extension.swift in Sources */,
 				720107B125DDAADA00E54F0F /* DependencyContainer+Extension.swift in Sources */,
+				72DCBDA225EED05700BD3AFC /* LoginViewController.swift in Sources */,
 				720107F225DDCC3E00E54F0F /* UIButton+extension.swift in Sources */,
 				720107EF25DDCC0600E54F0F /* UIViewController+presentable.swift in Sources */,
 				72CEA24625E1158B0073BE52 /* ProfileViewController.swift in Sources */,
 				7201079C25DDA40000E54F0F /* DependencyContainer.swift in Sources */,
 				72CEA24E25E116310073BE52 /* ProfileCoordinator.swift in Sources */,
 				720107F525DDCC5C00E54F0F /* ButtonWithImage.swift in Sources */,
+				72DCBDB725EED52600BD3AFC /* AppTextField.swift in Sources */,
 				7201079625DDA31700E54F0F /* BaseCoordinator.swift in Sources */,
 				72CEA24825E115AD0073BE52 /* ProfileView.swift in Sources */,
 				72E56A0825EAA95700B136D8 /* UIColor+random.swift in Sources */,
 				720107D225DDB02100E54F0F /* BaseCell.swift in Sources */,
 				720107A825DDA4E200E54F0F /* CoordinatorNavigationController.swift in Sources */,
+				72DCBDAE25EED0C900BD3AFC /* LoginRouter.swift in Sources */,
+				72DCBDAC25EED0B100BD3AFC /* AuthCoordinator.swift in Sources */,
 				72CEA1FD25DFA9F90073BE52 /* AlertMessage.swift in Sources */,
 				720107D525DDC7FC00E54F0F /* SetupCodeView.swift in Sources */,
 				72CEA21525DFCB790073BE52 /* BalanceView.swift in Sources */,
@@ -661,6 +812,7 @@
 				72CEA20925DFAB6D0073BE52 /* BalanceCoordinator.swift in Sources */,
 				72E56A0025EA763100B136D8 /* BinanceAPI.swift in Sources */,
 				7201079F25DDA46100E54F0F /* CoordinatorFactoryProtocol.swift in Sources */,
+				72DCBDA425EED06200BD3AFC /* RegisterViewController.swift in Sources */,
 				720107FB25DDCEDC00E54F0F /* CALayer+extension.swift in Sources */,
 				720107E625DDCB0E00E54F0F /* String+extension.swift in Sources */,
 				720107B925DDABBA00E54F0F /* Account+Keychain.swift in Sources */,
@@ -671,8 +823,10 @@
 				720107DC25DDC8A900E54F0F /* UIColor+rgba.swift in Sources */,
 				720107EC25DDCBDA00E54F0F /* UINavigationBar+extension.swift in Sources */,
 				72CEA20325DFAAD30073BE52 /* ServiceError.swift in Sources */,
+				7298AE6925F0216100336094 /* UIButton+style.swift in Sources */,
 				72AB045E25DF1C39001F4FAB /* UIViewController+alerts.swift in Sources */,
 				72CEA24A25E115E00073BE52 /* ProfileViewModel.swift in Sources */,
+				72DCBDA625EED07500BD3AFC /* LoginView.swift in Sources */,
 				72CEA20F25DFCA400073BE52 /* BalanceViewModel.swift in Sources */,
 				72E56A0A25EAAB8100B136D8 /* BalanceHeader.swift in Sources */,
 				720107C125DDAC1500E54F0F /* CoordinatorFinishOutput.swift in Sources */,
@@ -703,6 +857,8 @@
 				72CEA21225DFCB6D0073BE52 /* BalanceViewController.swift in Sources */,
 				720107B425DDAB4A00E54F0F /* LaunchInstructor.swift in Sources */,
 				72CEA20C25DFAB8A0073BE52 /* BalanceModel.swift in Sources */,
+				72DCBDA825EED07D00BD3AFC /* RegisterView.swift in Sources */,
+				72DCBDAA25EED09700BD3AFC /* LoginViewModel.swift in Sources */,
 				72CEA1E525DFA5E30073BE52 /* BalanceAPIManager.swift in Sources */,
 				720107E325DDCAE400E54F0F /* UILabel+extension.swift in Sources */,
 				720107AB25DDA51500E54F0F /* CustomBackButton.swift in Sources */,
@@ -857,6 +1013,7 @@
 		};
 		7201078425DD9F8700E54F0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C037DEFDF81622B63B5308D4 /* Pods-balance-tracker-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -876,6 +1033,7 @@
 		};
 		7201078525DD9F8700E54F0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA40061C240A70D3C317EB3E /* Pods-balance-tracker-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

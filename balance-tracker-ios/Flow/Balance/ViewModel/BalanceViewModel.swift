@@ -35,7 +35,7 @@ class BalanceViewModel: NSObject {
             self.isLoading?(false)
             var list = [AccountBalance]()
             account.balances.forEach { (balance) in
-                if balance.asset.hasSuffix("UP") || balance.asset == "TRY" || balance.asset == "USDT" {
+                if balance.asset == "TRY" || balance.asset == "USDT" {
                     return
                 }
                 if balance.totalAmount > 0.0 {
@@ -55,7 +55,7 @@ class BalanceViewModel: NSObject {
     private func getAllPrices() {
         self.binanceBalances.forEach { (balance) in
             var endString: String
-            if balance.asset == "BTC" {
+            if balance.asset == "BTC" || balance.asset.hasSuffix("UP") {
                 endString = "USDT"
             } else {
                 endString = "BTC"
