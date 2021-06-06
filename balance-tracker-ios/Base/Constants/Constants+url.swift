@@ -24,6 +24,8 @@ extension Constants {
     static let devBase: String = ""
     static let constactTR: String = "https://api.sky.hamurlabs.com/v1/contact_us/?lang=tr"
     static let contactEN: String = "https://api.sky.hamurlabs.com/v1/contact_us/?lang=en"
+
+    static let coinRankingAPIKey: String = "coinrankingfcc5a9ce3c3b5b85f907c2b15852559da827f8808bfb4a95"
 }
 
 extension UIApplication {

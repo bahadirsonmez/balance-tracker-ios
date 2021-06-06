@@ -44,4 +44,5 @@ struct BalanceItem: Codable {
         self.totalItemPrice = totalItemPrice
         self.totalItemPriceAsDollars = totalItemPriceAsDollars
     }
+
 }

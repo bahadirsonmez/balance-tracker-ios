@@ -9,6 +9,7 @@ protocol AuthViewControllerFactory {
 //    func instantiateWelcomeViewController() -> WelcomeViewController
     func instantiateLoginViewController() -> LoginViewController
     func instantiateRegisterViewController() -> RegisterViewController
+    func instantiateBinanceAPIViewController() -> BinanceAPIViewController
 //    func instantiateSMSViewController() -> SMSViewController
     //func instantiateOnboardingViewController() -> OnboardingController
 }
@@ -19,9 +20,14 @@ protocol AuthViewControllerFactory {
 
 protocol TabBarControllerFactory {
     func instantiateTabBarController() -> MainTabBarController
+
     func instantiateBalanceViewController() -> BalanceViewController
-    func instantiateAccountViewController() -> AccountViewController
+
+    func instantiateFriendViewController() -> FriendsViewController
+    func instantiateFriendDetailViewController() -> FriendDetailViewController
+
     func instantiateProfileViewController() -> ProfileViewController
+
 }
 
 //protocol AccountControllerFactory {

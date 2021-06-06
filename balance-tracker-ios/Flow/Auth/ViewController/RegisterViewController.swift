@@ -22,6 +22,7 @@ class RegisterViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = colors.backgroundColor
+        self.title = "Register"
         bindViewModel()
         bindActions()
     }
@@ -62,9 +63,11 @@ class RegisterViewController: BaseViewController {
 
     private func bindActions() {
         thisView.registerTapped = { (email, password) in
-            self.onFinishRegister?(true)
-//            self.registerAction(firstName: firstName, lastName: lastName, email: email, password: password)
-//            self.registerAction(name: name, email: email, password: password)
+            self.viewModel.registerWithEmail(email: email, password: password) {
+                self.onFinishRegister?(true)
+            } failure: { (error) in
+                self.showAlert("Error", body: error.localizedDescription)
+            }
         }
         thisView.loginTapped = {
             self.onLogin?()

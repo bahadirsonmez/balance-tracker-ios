@@ -19,25 +19,10 @@ class LoginView: BaseView {
         button.backgroundColor = .white
         button.borderWidth = 0
         button.cornerRadius = 39
-        button.setImage(UIImage(named: "hamurlabs"), for: .normal)
-        button.setImage(UIImage(named: "hamurlabs"), for: .highlighted)
+        button.setImage(UIImage(named: "logo"), for: .normal)
+        button.setImage(UIImage(named: "logo"), for: .highlighted)
         return button
     }()
-    lazy var brandTitle: UILabel = {
-        let label = UILabel()
-        label.apply(style: .init(font: fonts.semibold24))
-        label.text = "Hamurlabs".localized()
-        return label
-    }()
-    lazy var brandSubtitle: UILabel = {
-        let label = UILabel()
-        label.apply(style: .init(font: fonts.regular16))
-        label.text = "Project Walker".localized()
-        return label
-    }()
-
-//    lazy var containerView = UIView().createView(color: .clear, corner: 8)
-
     lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -47,6 +32,7 @@ class LoginView: BaseView {
     lazy var emailTextField: AppTextField = {
         let tf = AppTextField()
         tf.loadView(placeholder: "Email")
+        tf.text = "bahadir@gmail.com"
         return tf
     }()
     lazy var passwordTextField: AppTextField = {
@@ -54,6 +40,7 @@ class LoginView: BaseView {
         tf.rightViewMode = .always
         tf.loadView(placeholder: "Şifre", isSecureText: true,
                     rightViewImage: UIImage(named: "show-password")!)
+        tf.text = "123456"
         return tf
     }()
     lazy var showPasswordButton: UIButton = {
@@ -112,7 +99,7 @@ class LoginView: BaseView {
 
 extension LoginView: SetupCodeView {
     func buildViewHierarchy() {
-        addSubviews(brandImage, brandTitle, brandSubtitle,
+        addSubviews(brandImage,
                     containerView/*, continueWithoutSignIn*/)
         containerView.addSubviews(
             emailTextField,
@@ -127,32 +114,16 @@ extension LoginView: SetupCodeView {
     func setupConstraints() {
         let safeArea: UILayoutGuide = self.safeAreaLayoutGuide
         brandImage.anchor(
-            top: topAnchor,
+            top: safeArea.topAnchor,
             leading: nil,
             bottom: nil,
             trailing: nil,
-            padding: .init(top: 85, left: 0, bottom: 0, right: 0),
-            size: .init(width: 76, height: 76)
+            padding: .init(top: 20, left: 0, bottom: 0, right: 0),
+            size: .init(width: 90, height: 60)
         )
         brandImage.centerX(to: self)
-        brandTitle.anchor(
-            top: brandImage.bottomAnchor,
-            leading: nil,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 15, left: 0, bottom: 0, right: 0)
-        )
-        brandTitle.centerX(to: self)
-        brandSubtitle.anchor(
-            top: brandTitle.bottomAnchor,
-            leading: nil,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 5, left: 0, bottom: 0, right: 0)
-        )
-        brandSubtitle.centerX(to: self)
         containerView.anchor(
-            top: brandSubtitle.bottomAnchor,
+            top: brandImage.bottomAnchor,
             leading: safeArea.leadingAnchor,
             bottom: nil,
             trailing: safeArea.trailingAnchor,

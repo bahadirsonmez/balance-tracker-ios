@@ -7,56 +7,37 @@
 import UIKit
 
 class BasicCell: BaseCell {
-    var isPaymentCell: Bool = false
-
-    lazy var cellIconLeft : UIImageView = {
+    
+    private lazy var cellIconLeft : UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleToFill
+        image.backgroundColor = colors.gray30
+        image.cornerRadius = 25
         return image
     }()
 
-    lazy var cellTitle: UILabel = {
+    private lazy var cellTitle: UILabel = {
         let label = UILabel()
-//        label.font = Constants.Fonts.fontN1b
-//        label.textColor = Constants.Colors.mainTextColor
-        label.addInterlineSpacing(spacingValue: 4, alignment: .left)
+        label.apply(style: .init())
         return label
     }()
 
-    lazy var cellSubtitle: UILabel = {
+    private lazy var cellSubtitle: UILabel = {
         let label = UILabel()
-//        label.font = Constants.Fonts.fontN1
-//        label.textColor = Constants.Colors.dimmedText
-        label.addInterlineSpacing(spacingValue: 4, alignment: .left)
+        label.apply(style: .init())
         return label
     }()
 
-    lazy var cellRightTitle: UILabel = {
-        let label = UILabel()
-//        label.font = Constants.Fonts.fontN1
-//        label.textColor = Constants.Colors.dimmedText
-        label.addInterlineSpacing(spacingValue: 4, alignment: .left)
-        return label
-    }()
-
-    lazy var cellInnerIcon : UIImageView = {
-        let imageView = UIImageView()
-//        imageView.image = Constants.BasicCell.tickIcon
-        imageView.contentMode = .scaleAspectFit
-        imageView.isHidden = true
-        return imageView
-    }()
-
-    lazy var cellIconRight : UIImageView = {
+    private lazy var cellIconRight : UIImageView = {
         let iv = UIImageView()
-//        iv.image = Constants.BasicCell.nextImage
+        iv.image = UIImage(named: "Arrow Right")
         iv.contentMode = .scaleAspectFit
         return iv
     }()
 
-    lazy var cellSeperator: UIView = {
+    private lazy var cellSeperator: UIView = {
         let view = UIView()
-//        view.backgroundColor = Constants.Colors.softBG
+        view.backgroundColor = colors.gray30
         return view
     }()
 
@@ -64,70 +45,56 @@ class BasicCell: BaseCell {
         setupView()
     }
 
-    public func setupCell(_ title: String, _ subTitle: String, _ tickHidden: Bool, _ imageName: String, _ rightTitle: String, _ isPaymentCell: Bool = false) {
+    public func setupCell(with model: FriendItem) {
+        self.cellTitle.text = model.name
+        cellTitle.centerY(to: self)
+    }
+
+    public func setupCell(_ title: String, subTitle: String = "", tickHidden: Bool = true, imageName: String = "", rightTitle: String = "") {
         cellIconLeft.image = UIImage(named: imageName)
         cellTitle.text = title
         cellSubtitle.text = subTitle
-        cellRightTitle.text = rightTitle
-        cellInnerIcon.isHidden = tickHidden
     }
 }
 
 extension BasicCell : SetupCodeView {
     func buildViewHierarchy() {
-        self.contentView.addSubviews(cellIconLeft,
-                         cellTitle, cellSubtitle,
-                         cellInnerIcon, cellIconRight,
-                         cellRightTitle, cellSeperator)
+        self.contentView.addSubviews(
+            cellIconLeft,
+            cellTitle,
+            cellSubtitle,
+            cellIconRight,
+            cellSeperator
+        )
     }
 
     func setupConstraints() {
-//        let padding = Constants.BasicCell.padding
-//        let leftCellSize = Constants.BasicCell.leftCellIcon
-//        let innerCellSize = Constants.BasicCell.innerCellIcon
-//        let rightCellSize = Constants.BasicCell.rightCellIcon
-//        let seperatorSize = Constants.BasicCell.seperator
-        cellIconLeft.anchor(top: self.topAnchor,
-                         leading: self.leadingAnchor,
-                         bottom: nil, trailing: nil,
-                         padding: .init(top: 0, left: 0, bottom: 0, right: 0)
+        cellIconLeft.anchor(
+            leading: self.leadingAnchor,
+            padding: .init(top: 0, left: 20, bottom: 0, right: 0),
+            size: .init(width: 50, height: 50)
         )
-        cellTitle.anchor(top: nil,
-                          leading: self.leadingAnchor,
-                          bottom: nil,
-                          trailing: self.trailingAnchor,
-                          padding: .init(top: 0, left: 60, bottom: 0, right: 0))
-        cellTitle.centerYAnchor.constraint(equalTo: cellIconLeft.centerYAnchor).isActive = true
-        cellSubtitle.anchor(top: cellTitle.bottomAnchor,
-                             leading: cellTitle.leadingAnchor,
-                             bottom: nil,
-                             trailing: cellInnerIcon.leadingAnchor,
-                             padding: .init(top: 0, left: 0, bottom: 0, right: 0))
-        cellIconRight.anchor(top: nil,
-                          leading: nil,
-                          bottom: nil,
-                          trailing: self.trailingAnchor,
-                          padding: .init(top: 0, left: 0, bottom: 0, right: 0)
-                          )
-        cellIconRight.centerYAnchor.constraint(equalTo: cellIconLeft.centerYAnchor).isActive = true
-        cellRightTitle.anchor(top: nil,
-                          leading: nil,
-                          bottom: nil,
-                          trailing: self.trailingAnchor,
-                          padding: .init(top: 0, left: 0, bottom: 0, right: 47))
-        cellRightTitle.centerYAnchor.constraint(equalTo: cellIconLeft.centerYAnchor).isActive = true
-        let innerTrailing: CGFloat = self.isPaymentCell ? 10 : 47
-        cellInnerIcon.anchor(top: nil,
-                          leading: nil,
-                          bottom: nil,
-                          trailing: self.trailingAnchor,
-                          padding: .init(top: 0, left: 0, bottom: 0, right: innerTrailing)
-                          )
-        cellSeperator.anchor(top: nil,
-                                 leading: self.leadingAnchor,
-                                 bottom: self.bottomAnchor,
-                                 trailing: self.trailingAnchor,
-                                 padding: .init(top: 0, left: 0, bottom: 0, right: 0)
+        cellIconLeft.centerY(to: self)
+        cellTitle.anchor(
+            top: cellIconLeft.topAnchor,
+            leading: cellIconLeft.trailingAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 0)
+        )
+        cellSubtitle.anchor(
+            top: cellTitle.bottomAnchor,
+            leading: cellIconLeft.trailingAnchor,
+            padding: .init(top: 5, left: 10, bottom: 0, right: 0)
+        )
+        cellIconRight.anchor(
+            trailing: self.trailingAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 20)
+        )
+        cellIconRight.centerY(to: self)
+        cellSeperator.anchor(
+            leading: self.leadingAnchor,
+            bottom: self.bottomAnchor,
+            trailing: self.trailingAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 0)
         )
     }
 

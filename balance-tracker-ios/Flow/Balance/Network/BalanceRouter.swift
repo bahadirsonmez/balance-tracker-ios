@@ -9,20 +9,20 @@ import Alamofire
 import Foundation
 
 enum BalanceRouter: URLRequestConvertible {
-    case getBalanceList(id: String)
+    case getCoinPrices
 
-    static let apiURLString = "Constants.baseURL"
+    static let apiURLString = "https://api.coinranking.com/v2"
 
     public var path: String {
         switch self {
-        case .getBalanceList(let id):
-            return "/api/balance/\(id)"
+        case .getCoinPrices:
+            return "/coins"
         }
     }
 
     public var method: Alamofire.HTTPMethod {
         switch self {
-        case .getBalanceList:
+        case .getCoinPrices:
             return .get
         }
     }
@@ -37,11 +37,11 @@ enum BalanceRouter: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
 
         switch self {
-        case .getBalanceList:
+        case .getCoinPrices:
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-            let accessToken = KeychainAccount.sharedAccount.accessToken
-            urlRequest.addValue("Token " + accessToken!, forHTTPHeaderField: "Authorization")
+//            let accessToken = KeychainAccount.sharedAccount.accessToken
+            urlRequest.addValue(Constants.coinRankingAPIKey, forHTTPHeaderField: "x-access-token")
         }
         return urlRequest
     }

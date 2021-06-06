@@ -6,16 +6,14 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class MainTabBarController: UITabBarController {
 
     var toBalance: (() -> Void)?
-    var toAccount: (() -> Void)?
+    var toFriends: (() -> Void)?
     var toProfile: (() -> Void)?
 
     var duration = 0.0
-    var handle: Auth!
 
     private let defaults = UserDefaults.standard
 
@@ -38,15 +36,10 @@ class MainTabBarController: UITabBarController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            print(auth)
-            print(user)
-        } as? Auth
         super.viewDidAppear(animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        Auth.auth().removeStateDidChangeListener(handle)
         super.viewWillDisappear(animated)
     }
 
@@ -91,8 +84,8 @@ extension MainTabBarController: UITabBarControllerDelegate {
         switch viewController {
         case viewController as BalanceViewController:
             toBalance?()
-        case viewController as AccountViewController:
-            toAccount?()
+        case viewController as FriendsViewController:
+            toFriends?()
         case viewController as ProfileViewController:
             toProfile?()
         default:

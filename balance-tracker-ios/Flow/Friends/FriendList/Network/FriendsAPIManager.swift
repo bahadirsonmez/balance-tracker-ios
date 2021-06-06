@@ -1,5 +1,5 @@
 //
-//  AccountAPIManager.swift
+//  FriendsAPIManager.swift
 //  balance-tracker-ios
 //
 //  Created by Bahadir Sonmez on 19.02.2021.
@@ -8,7 +8,7 @@
 import Alamofire
 import Foundation
 
-class AccountAPIManager {
+class FriendsAPIManager {
 
     // MARK: - Vars & Lets
     private let sessionManager: Session
@@ -87,7 +87,7 @@ class AccountAPIManager {
         }
     }
 
-    func callWH<T>(router: AccountRouter, handler: @escaping (Swift.Result<T, APIError>) -> Void) where T: Codable {
+    func callWH<T>(router: FriendsRouter, handler: @escaping (Swift.Result<T, APIError>) -> Void) where T: Codable {
         self.sessionManager.request(router).validate(statusCode: 200..<300).responseJSON { (data) in
             print(router)
             print(data)
@@ -115,7 +115,7 @@ class AccountAPIManager {
         }
     }
 
-    func call<T>(router: AccountRouter, handler: @escaping (Swift.Result<T, APIError>) -> Void) where T: Codable {
+    func call<T>(router: FriendsRouter, handler: @escaping (Swift.Result<T, APIError>) -> Void) where T: Codable {
         self.sessionManager.request(router/*, interceptor: interceptor*/).validate(statusCode: 200..<300).responseJSON { (data) in
             switch data.result {
             case .success(_):
@@ -141,7 +141,7 @@ class AccountAPIManager {
         }
     }
 
-    func call(router: AccountRouter, handler: @escaping([AccountItem]?, Error?) -> Void) {
+    func call(router: FriendsRouter, handler: @escaping([FriendItem]?, Error?) -> Void) {
         self.sessionManager.request(router).validate(statusCode: 200..<300).responseJSON { (response) in
             switch response.result {
             case .success:
@@ -150,7 +150,7 @@ class AccountAPIManager {
                     print(jsonData)
                     let jsonDecoder = JSONDecoder()
                     do {
-                        let workoutCards = try jsonDecoder.decode([AccountItem].self, from: jsonData)
+                        let workoutCards = try jsonDecoder.decode([FriendItem].self, from: jsonData)
                         handler(workoutCards, nil)
                     }catch let error{
                         print(error.localizedDescription)
@@ -163,7 +163,7 @@ class AccountAPIManager {
         }
     }
 
-    func callResponse(router: AccountRouter, handler: @escaping(String?, SkyErrorModel?) -> Void){
+    func callResponse(router: FriendsRouter, handler: @escaping(String?, SkyErrorModel?) -> Void){
         self.sessionManager.request(router).validate(statusCode: 200..<300).responseString { (data) in
             switch data.result {
             case .success(let value):

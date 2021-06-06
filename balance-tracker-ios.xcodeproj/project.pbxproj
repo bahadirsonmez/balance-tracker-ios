@@ -47,8 +47,14 @@
 		720107F525DDCC5C00E54F0F /* ButtonWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107F425DDCC5C00E54F0F /* ButtonWithImage.swift */; };
 		720107F825DDCC8E00E54F0F /* UIView+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107F725DDCC8E00E54F0F /* UIView+layout.swift */; };
 		720107FB25DDCEDC00E54F0F /* CALayer+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720107FA25DDCEDC00E54F0F /* CALayer+extension.swift */; };
+		7203A3A225FCC36100FB3AC8 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7203A3A125FCC36100FB3AC8 /* CardView.swift */; };
+		7225EF44266D53B400BBA2F7 /* CoinPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225EF43266D53B400BBA2F7 /* CoinPrices.swift */; };
+		728BF1492604B76500CBF304 /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BF1482604B76500CBF304 /* FriendDetailViewController.swift */; };
+		728BF14B2604BBF300CBF304 /* FriendDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BF14A2604BBF300CBF304 /* FriendDetailView.swift */; };
 		7298AE4225F0173400336094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7298AE4125F0173400336094 /* GoogleService-Info.plist */; };
 		7298AE6925F0216100336094 /* UIButton+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7298AE6825F0216100336094 /* UIButton+style.swift */; };
+		7298AE6B25F19DE900336094 /* BinanceAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7298AE6A25F19DE900336094 /* BinanceAPIView.swift */; };
+		7298AE6D25F1A01D00336094 /* BinanceAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7298AE6C25F1A01D00336094 /* BinanceAPIViewController.swift */; };
 		72AB045B25DF1C14001F4FAB /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 72AB045A25DF1C14001F4FAB /* SwiftMessages */; };
 		72AB045E25DF1C39001F4FAB /* UIViewController+alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AB045D25DF1C39001F4FAB /* UIViewController+alerts.swift */; };
 		72AB046125DF1C4A001F4FAB /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AB046025DF1C4A001F4FAB /* UIViewController+extension.swift */; };
@@ -72,13 +78,13 @@
 		72CEA21525DFCB790073BE52 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA21425DFCB790073BE52 /* BalanceView.swift */; };
 		72CEA21825DFCBF00073BE52 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA21725DFCBF00073BE52 /* BasicCell.swift */; };
 		72CEA21B25DFE7E70073BE52 /* BasicHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA21A25DFE7E70073BE52 /* BasicHeader.swift */; };
-		72CEA22725DFEC030073BE52 /* AccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA22625DFEC030073BE52 /* AccountRouter.swift */; };
-		72CEA22B25DFEC4C0073BE52 /* AccountAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA22A25DFEC4C0073BE52 /* AccountAPIManager.swift */; };
-		72CEA22E25DFEC6F0073BE52 /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA22D25DFEC6F0073BE52 /* AccountCoordinator.swift */; };
-		72CEA23825E105F40073BE52 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA23725E105F40073BE52 /* AccountModel.swift */; };
-		72CEA23A25E114010073BE52 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA23925E114010073BE52 /* AccountViewModel.swift */; };
-		72CEA23C25E114380073BE52 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA23B25E114380073BE52 /* AccountView.swift */; };
-		72CEA23E25E1147D0073BE52 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA23D25E1147D0073BE52 /* AccountViewController.swift */; };
+		72CEA22725DFEC030073BE52 /* FriendsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA22625DFEC030073BE52 /* FriendsRouter.swift */; };
+		72CEA22B25DFEC4C0073BE52 /* FriendsAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA22A25DFEC4C0073BE52 /* FriendsAPIManager.swift */; };
+		72CEA22E25DFEC6F0073BE52 /* FriendsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA22D25DFEC6F0073BE52 /* FriendsCoordinator.swift */; };
+		72CEA23825E105F40073BE52 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA23725E105F40073BE52 /* FriendModel.swift */; };
+		72CEA23A25E114010073BE52 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA23925E114010073BE52 /* FriendsViewModel.swift */; };
+		72CEA23C25E114380073BE52 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA23B25E114380073BE52 /* FriendsView.swift */; };
+		72CEA23E25E1147D0073BE52 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA23D25E1147D0073BE52 /* FriendsViewController.swift */; };
 		72CEA24625E1158B0073BE52 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA24525E1158B0073BE52 /* ProfileViewController.swift */; };
 		72CEA24825E115AD0073BE52 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA24725E115AD0073BE52 /* ProfileView.swift */; };
 		72CEA24A25E115E00073BE52 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CEA24925E115E00073BE52 /* ProfileViewModel.swift */; };
@@ -158,8 +164,14 @@
 		720107F425DDCC5C00E54F0F /* ButtonWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithImage.swift; sourceTree = "<group>"; };
 		720107F725DDCC8E00E54F0F /* UIView+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+layout.swift"; sourceTree = "<group>"; };
 		720107FA25DDCEDC00E54F0F /* CALayer+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+extension.swift"; sourceTree = "<group>"; };
+		7203A3A125FCC36100FB3AC8 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		7225EF43266D53B400BBA2F7 /* CoinPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinPrices.swift; sourceTree = "<group>"; };
+		728BF1482604B76500CBF304 /* FriendDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
+		728BF14A2604BBF300CBF304 /* FriendDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailView.swift; sourceTree = "<group>"; };
 		7298AE4125F0173400336094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7298AE6825F0216100336094 /* UIButton+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+style.swift"; sourceTree = "<group>"; };
+		7298AE6A25F19DE900336094 /* BinanceAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceAPIView.swift; sourceTree = "<group>"; };
+		7298AE6C25F1A01D00336094 /* BinanceAPIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceAPIViewController.swift; sourceTree = "<group>"; };
 		72AB045D25DF1C39001F4FAB /* UIViewController+alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alerts.swift"; sourceTree = "<group>"; };
 		72AB046025DF1C4A001F4FAB /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		72AB046725DF203C001F4FAB /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -181,13 +193,13 @@
 		72CEA21425DFCB790073BE52 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		72CEA21725DFCBF00073BE52 /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
 		72CEA21A25DFE7E70073BE52 /* BasicHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicHeader.swift; sourceTree = "<group>"; };
-		72CEA22625DFEC030073BE52 /* AccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRouter.swift; sourceTree = "<group>"; };
-		72CEA22A25DFEC4C0073BE52 /* AccountAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPIManager.swift; sourceTree = "<group>"; };
-		72CEA22D25DFEC6F0073BE52 /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
-		72CEA23725E105F40073BE52 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
-		72CEA23925E114010073BE52 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
-		72CEA23B25E114380073BE52 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		72CEA23D25E1147D0073BE52 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		72CEA22625DFEC030073BE52 /* FriendsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRouter.swift; sourceTree = "<group>"; };
+		72CEA22A25DFEC4C0073BE52 /* FriendsAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAPIManager.swift; sourceTree = "<group>"; };
+		72CEA22D25DFEC6F0073BE52 /* FriendsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCoordinator.swift; sourceTree = "<group>"; };
+		72CEA23725E105F40073BE52 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		72CEA23925E114010073BE52 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
+		72CEA23B25E114380073BE52 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		72CEA23D25E1147D0073BE52 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		72CEA24525E1158B0073BE52 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		72CEA24725E115AD0073BE52 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		72CEA24925E115E00073BE52 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -282,7 +294,7 @@
 				72DCBD9D25EECFEC00BD3AFC /* Auth */,
 				72AB046625DF2026001F4FAB /* Tabbar */,
 				72CEA1D925DFA5310073BE52 /* Balance */,
-				72CEA21D25DFEA6D0073BE52 /* Account */,
+				72CEA21D25DFEA6D0073BE52 /* Friends */,
 				72CEA21E25DFEA7E0073BE52 /* Profile */,
 				7201077625DD9F8200E54F0F /* ViewController.swift */,
 			);
@@ -361,8 +373,31 @@
 				72CEA21725DFCBF00073BE52 /* BasicCell.swift */,
 				72CEA21A25DFE7E70073BE52 /* BasicHeader.swift */,
 				72DCBDB625EED52600BD3AFC /* AppTextField.swift */,
+				7203A3A125FCC36100FB3AC8 /* CardView.swift */,
 			);
 			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		728BF146260485B400CBF304 /* FriendList */ = {
+			isa = PBXGroup;
+			children = (
+				72CEA21F25DFEBC70073BE52 /* Network */,
+				72CEA22425DFEBE40073BE52 /* Coordinator */,
+				72CEA22325DFEBDF0073BE52 /* Model */,
+				72CEA22225DFEBDA0073BE52 /* ViewModel */,
+				72CEA22125DFEBD60073BE52 /* View */,
+				72CEA22025DFEBCE0073BE52 /* ViewController */,
+			);
+			path = FriendList;
+			sourceTree = "<group>";
+		};
+		728BF147260485BE00CBF304 /* FriendDetail */ = {
+			isa = PBXGroup;
+			children = (
+				728BF1482604B76500CBF304 /* FriendDetailViewController.swift */,
+				728BF14A2604BBF300CBF304 /* FriendDetailView.swift */,
+			);
+			path = FriendDetail;
 			sourceTree = "<group>";
 		};
 		72AB046625DF2026001F4FAB /* Tabbar */ = {
@@ -408,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				72CEA20B25DFAB8A0073BE52 /* BalanceModel.swift */,
+				7225EF43266D53B400BBA2F7 /* CoinPrices.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -461,17 +497,13 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		72CEA21D25DFEA6D0073BE52 /* Account */ = {
+		72CEA21D25DFEA6D0073BE52 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				72CEA21F25DFEBC70073BE52 /* Network */,
-				72CEA22425DFEBE40073BE52 /* Coordinator */,
-				72CEA22325DFEBDF0073BE52 /* Model */,
-				72CEA22225DFEBDA0073BE52 /* ViewModel */,
-				72CEA22125DFEBD60073BE52 /* View */,
-				72CEA22025DFEBCE0073BE52 /* ViewController */,
+				728BF146260485B400CBF304 /* FriendList */,
+				728BF147260485BE00CBF304 /* FriendDetail */,
 			);
-			path = Account;
+			path = Friends;
 			sourceTree = "<group>";
 		};
 		72CEA21E25DFEA7E0073BE52 /* Profile */ = {
@@ -490,8 +522,8 @@
 		72CEA21F25DFEBC70073BE52 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				72CEA22625DFEC030073BE52 /* AccountRouter.swift */,
-				72CEA22A25DFEC4C0073BE52 /* AccountAPIManager.swift */,
+				72CEA22625DFEC030073BE52 /* FriendsRouter.swift */,
+				72CEA22A25DFEC4C0073BE52 /* FriendsAPIManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -499,7 +531,7 @@
 		72CEA22025DFEBCE0073BE52 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				72CEA23D25E1147D0073BE52 /* AccountViewController.swift */,
+				72CEA23D25E1147D0073BE52 /* FriendsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -507,7 +539,7 @@
 		72CEA22125DFEBD60073BE52 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				72CEA23B25E114380073BE52 /* AccountView.swift */,
+				72CEA23B25E114380073BE52 /* FriendsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -515,7 +547,7 @@
 		72CEA22225DFEBDA0073BE52 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				72CEA23925E114010073BE52 /* AccountViewModel.swift */,
+				72CEA23925E114010073BE52 /* FriendsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -523,7 +555,7 @@
 		72CEA22325DFEBDF0073BE52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				72CEA23725E105F40073BE52 /* AccountModel.swift */,
+				72CEA23725E105F40073BE52 /* FriendModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,7 +563,7 @@
 		72CEA22425DFEBE40073BE52 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				72CEA22D25DFEC6F0073BE52 /* AccountCoordinator.swift */,
+				72CEA22D25DFEC6F0073BE52 /* FriendsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -626,6 +658,7 @@
 			children = (
 				72DCBDA525EED07500BD3AFC /* LoginView.swift */,
 				72DCBDA725EED07D00BD3AFC /* RegisterView.swift */,
+				7298AE6A25F19DE900336094 /* BinanceAPIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -635,6 +668,7 @@
 			children = (
 				72DCBDA125EED05700BD3AFC /* LoginViewController.swift */,
 				72DCBDA325EED06200BD3AFC /* RegisterViewController.swift */,
+				7298AE6C25F1A01D00336094 /* BinanceAPIViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -788,6 +822,7 @@
 			files = (
 				72CEA20625DFAAE80073BE52 /* NetworkError.swift in Sources */,
 				72CEA1F425DFA6A60073BE52 /* Constants+text.swift in Sources */,
+				728BF1492604B76500CBF304 /* FriendDetailViewController.swift in Sources */,
 				720107E925DDCB8700E54F0F /* UIView+extension.swift in Sources */,
 				720107B125DDAADA00E54F0F /* DependencyContainer+Extension.swift in Sources */,
 				72DCBDA225EED05700BD3AFC /* LoginViewController.swift in Sources */,
@@ -808,7 +843,7 @@
 				72CEA1FD25DFA9F90073BE52 /* AlertMessage.swift in Sources */,
 				720107D525DDC7FC00E54F0F /* SetupCodeView.swift in Sources */,
 				72CEA21525DFCB790073BE52 /* BalanceView.swift in Sources */,
-				72CEA22725DFEC030073BE52 /* AccountRouter.swift in Sources */,
+				72CEA22725DFEC030073BE52 /* FriendsRouter.swift in Sources */,
 				72CEA20925DFAB6D0073BE52 /* BalanceCoordinator.swift in Sources */,
 				72E56A0025EA763100B136D8 /* BinanceAPI.swift in Sources */,
 				7201079F25DDA46100E54F0F /* CoordinatorFactoryProtocol.swift in Sources */,
@@ -817,14 +852,17 @@
 				720107E625DDCB0E00E54F0F /* String+extension.swift in Sources */,
 				720107B925DDABBA00E54F0F /* Account+Keychain.swift in Sources */,
 				720107C725DDAC7800E54F0F /* UserDefaultHelper.swift in Sources */,
+				7298AE6B25F19DE900336094 /* BinanceAPIView.swift in Sources */,
 				72CEA25225E116840073BE52 /* ProfileAPIManager.swift in Sources */,
 				720107E025DDCA8A00E54F0F /* Currency.swift in Sources */,
-				72CEA23A25E114010073BE52 /* AccountViewModel.swift in Sources */,
+				72CEA23A25E114010073BE52 /* FriendsViewModel.swift in Sources */,
 				720107DC25DDC8A900E54F0F /* UIColor+rgba.swift in Sources */,
 				720107EC25DDCBDA00E54F0F /* UINavigationBar+extension.swift in Sources */,
 				72CEA20325DFAAD30073BE52 /* ServiceError.swift in Sources */,
+				7298AE6D25F1A01D00336094 /* BinanceAPIViewController.swift in Sources */,
 				7298AE6925F0216100336094 /* UIButton+style.swift in Sources */,
 				72AB045E25DF1C39001F4FAB /* UIViewController+alerts.swift in Sources */,
+				7225EF44266D53B400BBA2F7 /* CoinPrices.swift in Sources */,
 				72CEA24A25E115E00073BE52 /* ProfileViewModel.swift in Sources */,
 				72DCBDA625EED07500BD3AFC /* LoginView.swift in Sources */,
 				72CEA20F25DFCA400073BE52 /* BalanceViewModel.swift in Sources */,
@@ -839,24 +877,26 @@
 				720107F825DDCC8E00E54F0F /* UIView+layout.swift in Sources */,
 				720107BE25DDABF200E54F0F /* FadeAnimator.swift in Sources */,
 				720107A225DDA4A200E54F0F /* Router.swift in Sources */,
-				72CEA22E25DFEC6F0073BE52 /* AccountCoordinator.swift in Sources */,
+				72CEA22E25DFEC6F0073BE52 /* FriendsCoordinator.swift in Sources */,
 				72CEA24C25E116090073BE52 /* ProfileModel.swift in Sources */,
 				72CEA1E125DFA5D50073BE52 /* BalanceRouter.swift in Sources */,
 				72CEA20025DFAAAE0073BE52 /* APIErrorModel.swift in Sources */,
-				72CEA23E25E1147D0073BE52 /* AccountViewController.swift in Sources */,
+				72CEA23E25E1147D0073BE52 /* FriendsViewController.swift in Sources */,
 				72AB046825DF203C001F4FAB /* MainTabBarCoordinator.swift in Sources */,
-				72CEA22B25DFEC4C0073BE52 /* AccountAPIManager.swift in Sources */,
+				72CEA22B25DFEC4C0073BE52 /* FriendsAPIManager.swift in Sources */,
 				72CEA25025E116740073BE52 /* ProfileRouter.swift in Sources */,
 				72AB046125DF1C4A001F4FAB /* UIViewController+extension.swift in Sources */,
 				72CEA21825DFCBF00073BE52 /* BasicCell.swift in Sources */,
-				72CEA23C25E114380073BE52 /* AccountView.swift in Sources */,
+				72CEA23C25E114380073BE52 /* FriendsView.swift in Sources */,
+				728BF14B2604BBF300CBF304 /* FriendDetailView.swift in Sources */,
 				720107CF25DDAFD000E54F0F /* BaseViewController.swift in Sources */,
 				7201077325DD9F8200E54F0F /* AppDelegate.swift in Sources */,
 				72AB046D25DF205A001F4FAB /* MainTabBarController.swift in Sources */,
-				72CEA23825E105F40073BE52 /* AccountModel.swift in Sources */,
+				72CEA23825E105F40073BE52 /* FriendModel.swift in Sources */,
 				72CEA21225DFCB6D0073BE52 /* BalanceViewController.swift in Sources */,
 				720107B425DDAB4A00E54F0F /* LaunchInstructor.swift in Sources */,
 				72CEA20C25DFAB8A0073BE52 /* BalanceModel.swift in Sources */,
+				7203A3A225FCC36100FB3AC8 /* CardView.swift in Sources */,
 				72DCBDA825EED07D00BD3AFC /* RegisterView.swift in Sources */,
 				72DCBDAA25EED09700BD3AFC /* LoginViewModel.swift in Sources */,
 				72CEA1E525DFA5E30073BE52 /* BalanceAPIManager.swift in Sources */,

@@ -1,13 +1,14 @@
 //
-//  BalanceView.swift
+//  FriendDetailView.swift
 //  balance-tracker-ios
 //
-//  Created by Bahadir Sonmez on 19.02.2021.
+//  Created by Bahadir Sonmez on 19.03.2021.
 //
 import UIKit
 
-class BalanceView: UIView {
-    var viewModel: BalanceViewModel!
+class FriendDetailView: UIView {
+    var item: FriendItem!
+    var viewModel: FriendsViewModel!
 
     var safeArea = UILayoutGuide()
     let cellId = "cellId"
@@ -36,8 +37,9 @@ class BalanceView: UIView {
 
     }
 
-    func loadView(_ vm: BalanceViewModel) {
-        self.viewModel = vm
+    func loadView(with item: FriendItem, viewModel: FriendsViewModel) {
+        self.item = item
+        self.viewModel = viewModel
         DispatchQueue.main.async {
             self.collectionView.dataSource = self
             self.collectionView.delegate = self
@@ -53,7 +55,7 @@ class BalanceView: UIView {
     }
 }
 
-extension BalanceView: SetupCodeView {
+extension FriendDetailView: SetupCodeView {
     func buildViewHierarchy() {
         self.addSubviews(collectionView)
     }
@@ -74,7 +76,7 @@ extension BalanceView: SetupCodeView {
     }
 }
 
-extension BalanceView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension FriendDetailView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -98,8 +100,7 @@ extension BalanceView: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId,
                                                           for: indexPath) as!  BalanceCell
-            cell.item = viewModel.binanceBalances[indexPath.row]
-//            cell.setupCell(with: (viewModel.binanceBalances[indexPath.row]))
+            cell.setupCell(with: (viewModel.binanceBalances[indexPath.row]))
             return cell
         }
     }

@@ -1,59 +1,77 @@
 //
-//  AccountView.swift
+//  FriendsView.swift
 //  balance-tracker-ios
 //
 //  Created by Bahadir Sonmez on 20.02.2021.
 //
 import UIKit
 
-class AccountView: UIView {
-
+class FriendsView: UIView {
+    var addButtonTapped: (() -> Void)? = nil
     var safeArea = UILayoutGuide()
-//    let minLineSpacing = Constants.BasicCell.minLineSpacing
-//    let cellHeight = Constants.BasicCell.cellHeight
-//    let headerHeight = Constants.HeaderSize.profileHeader.height
-//    let sectionInset = Constants.BasicCell.sectionInset
-//    let sectionInsetZero = Constants.BasicCell.sectionInsetZero
     let cellId = "cellId"
-    let headerId = "headerId"
+    var viewModel: FriendsViewModel!
+    var rowTapped : ((FriendItem) -> Void)?
 
-    var rowTapped : ((Int) -> Void)?
-
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.showsVerticalScrollIndicator = false
         cv.showsHorizontalScrollIndicator = false
-//        cv.backgroundColor = Constants.Colors.backgroundColor
+        cv.backgroundColor = .white
         return cv
     }()
+
+    private lazy var addFriendButton: UIButton = {
+        let button = UIButton()
+        button.apply(style: .orangeColor)
+        button.setTitle("Add Friend", for: .normal)
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        return button
+    }()
+
+    @objc func didTapButton(_ sender: UIButton) {
+
+    }
 
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         self.backgroundColor = .clear
-        buildViewHierarchy()
-        setupConstraints()
-        setupAdditionalConfiguration()
+        setupView()
     }
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented")
 
     }
+
+    func loadView(with viewModel: FriendsViewModel) {
+        self.viewModel = viewModel
+        collectionView.reloadData()
+    }
 }
 
-extension AccountView: SetupCodeView {
+extension FriendsView: SetupCodeView {
     func buildViewHierarchy() {
-        self.addSubviews(collectionView)
+        self.addSubviews(collectionView, addFriendButton)
     }
 
     func setupConstraints() {
         safeArea = self.safeAreaLayoutGuide
-        collectionView.anchor(top: safeArea.topAnchor,
-                              leading: safeArea.leadingAnchor,
-                              bottom: safeArea.bottomAnchor,
-                              trailing: safeArea.trailingAnchor
-                              )
+        collectionView.anchor(
+            top: safeArea.topAnchor,
+            leading: safeArea.leadingAnchor,
+            bottom: addFriendButton.topAnchor,
+            trailing: safeArea.trailingAnchor
+        )
+        addFriendButton.anchor(
+            top: collectionView.bottomAnchor,
+            leading: safeArea.leadingAnchor,
+            bottom: safeArea.bottomAnchor,
+            trailing: safeArea.trailingAnchor,
+            padding: .init(top: 10, left: 20, bottom: 20, right: 20),
+            size: .init(width: 0, height: 45)
+        )
     }
 
     func setupAdditionalConfiguration() {
@@ -64,34 +82,31 @@ extension AccountView: SetupCodeView {
     }
 }
 
-extension AccountView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension FriendsView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return self.viewModel.numberOfFriends
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId,
                                                       for: indexPath) as!  BasicCell
-//        cell.setupCell(
-//            Constants.CellTitles.menuTitles[indexPath.row],
-//            menuImageName: Constants.CellImages.menuImages[indexPath.row]
-//        )
+        cell.setupCell(with: self.viewModel.friendItems[indexPath.row])
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.rowTapped?(indexPath.row)
+        self.rowTapped?(self.viewModel.friendItems[indexPath.row])
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 32,
-                      height: 200)
+        return CGSize(width: collectionView.frame.width,
+                      height: 60)
     }
 
 //    func collectionView(_ collectionView: UICollectionView,

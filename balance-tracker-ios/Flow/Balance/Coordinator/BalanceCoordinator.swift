@@ -23,6 +23,9 @@ final class BalanceCoordinator: BaseCoordinator, CoordinatorFinishOutput {
     // MARK: - Private metods
     private func showBalanceModule() {
         controller.tabBarController?.selectedIndex = 0
+        controller.onForceLogout = {
+            self.forceLogout()
+        }
     }
 
     init(controller: BalanceViewController, router: RouterProtocol, factory: Factory) {
@@ -30,5 +33,18 @@ final class BalanceCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         self.factory = factory
         self.controller = controller
     }
+
+    func forceLogout() {
+        KeychainAccount.sharedAccount.clearAll()
+        self.removeDependency(self)
+        self.showAuthFlow()
+    }
+
+    private func showAuthFlow() {
+        let authCoordinator = self.factory.instantiateAuthCoordinator(router: router)
+        addDependency(authCoordinator)
+        authCoordinator.start()
+    }
+
 }
 

@@ -9,11 +9,6 @@ import UIKit
 class ProfileView: UIView {
 
     var safeArea = UILayoutGuide()
-//    let minLineSpacing = Constants.BasicCell.minLineSpacing
-//    let cellHeight = Constants.BasicCell.cellHeight
-//    let headerHeight = Constants.HeaderSize.profileHeader.height
-//    let sectionInset = Constants.BasicCell.sectionInset
-//    let sectionInsetZero = Constants.BasicCell.sectionInsetZero
     let cellId = "cellId"
     let headerId = "headerId"
 

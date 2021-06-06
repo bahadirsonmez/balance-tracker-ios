@@ -1,18 +1,19 @@
 //
-//  AccountViewController.swift
+//  FriendsViewController.swift
 //  balance-tracker-ios
 //
 //  Created by Bahadir Sonmez on 20.02.2021.
 //
 import UIKit
 
-class AccountViewController: BaseViewController {
+class FriendsViewController: BaseViewController {
     var onLogout: (() -> Void)?
+    var onFriendDetail: ((FriendItem) -> Void)?
 
-    var viewModel: AccountViewModel!
+    var viewModel: FriendsViewModel!
 
     // MARK: - Vars & Lets
-    private let thisView: AccountView = AccountView()
+    private let thisView: FriendsView = FriendsView()
     private lazy var navContainer: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -25,7 +26,7 @@ class AccountViewController: BaseViewController {
 //        label.textColor = Constants.Colors.mainTextColor
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.text = "Welcome"
+        label.text = "Friends"
         return label
     }()
 
@@ -43,18 +44,21 @@ class AccountViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+//        self.navigationController?.isNavigationBarHidden = true
         bindActions()
+        setupUI()
+        view.backgroundColor = .white
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        thisView.loadView(with: self.viewModel)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //self.navigationController?.navigationBar.isHidden = false
+//        self.navigationController?.navigationBar.isHidden = false
+//        self.navigationController?.isNavigationBarHidden = false
     }
 
     private func setupUI() {
@@ -92,7 +96,9 @@ class AccountViewController: BaseViewController {
     }
 
     private func bindActions() {
-
+        thisView.rowTapped = { item in
+            self.onFriendDetail?(item)
+        }
     }
 
     private func logoutAction() {

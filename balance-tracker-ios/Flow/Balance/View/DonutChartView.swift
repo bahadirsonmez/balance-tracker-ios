@@ -9,7 +9,8 @@ import UIKit
 import Charts
 
 class DonutChartView: BaseCell, SetupCodeView, ChartViewDelegate {
-    var viewModel: BalanceViewModel!
+    var balanceViewModel: BalanceViewModel!
+    var friendViewModel: FriendsViewModel!
 
     lazy var chart: PieChartView = {
         let view = PieChartView()
@@ -29,13 +30,19 @@ class DonutChartView: BaseCell, SetupCodeView, ChartViewDelegate {
     }
 
     func loadView(with vm: BalanceViewModel) {
-        self.viewModel = vm
-        setDataCount(self.viewModel.numberOfItems)
+        self.balanceViewModel = vm
+        setDataCount(self.balanceViewModel.numberOfItems, isBalance: true)
     }
 
-    func setDataCount(_ count: Int) {
+    func loadView(with vm: FriendsViewModel) {
+        self.friendViewModel = vm
+        setDataCount(self.friendViewModel.numberOfItems, isBalance: false)
+    }
+
+    func setDataCount(_ count: Int, isBalance: Bool) {
         let entries = (0..<count).map { (i) -> PieChartDataEntry in
-            let vm = self.viewModel.binanceBalances[i % self.viewModel.numberOfItems]
+            let vm = isBalance ? self.balanceViewModel.binanceBalances[i % self.balanceViewModel.numberOfItems] :
+                                    self.friendViewModel.binanceBalances[i % self.friendViewModel.numberOfItems]
             return PieChartDataEntry(value: vm.totalAmount,
                                      label: vm.asset,
                                      icon: UIImage(named: "\(vm.asset.lowercased())"))

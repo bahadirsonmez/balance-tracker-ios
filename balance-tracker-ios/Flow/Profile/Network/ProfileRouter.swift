@@ -27,7 +27,7 @@ enum ProfileRouter: URLRequestConvertible {
     }
 
     public func asURLRequest() throws -> URLRequest {
-        let url = try AccountRouter.apiURLString.asURL()
+        let url = try ProfileRouter.apiURLString.asURL()
         var urlRequest = URLRequest(url: (url.appendingPathComponent(path)))
         //let newURLRequest = urlRequest.description.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         let newURLRequest = urlRequest.description.removingPercentEncoding

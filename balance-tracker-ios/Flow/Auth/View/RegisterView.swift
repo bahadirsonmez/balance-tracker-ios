@@ -11,21 +11,17 @@ class RegisterView: BaseView {
     var loginTapped: (() -> Void)?
     var privacyTapped : (() -> Void)?
 
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.apply(style: .init(font: fonts.semibold24, textColor: colors.mainTextColor))
-        label.text = "Sign Up"
-        return label
-    }()
     lazy var formContainerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
         view.backgroundColor = .clear
+        view.contentMode = .top
         return view
     }()
     lazy var emailTextField: AppTextField = {
         let tf = AppTextField()
         tf.loadView(placeholder: "Email")
+        tf.text = "bahadir@gmail.com"
         return tf
     }()
     lazy var passwordTextField: AppTextField = {
@@ -33,6 +29,7 @@ class RegisterView: BaseView {
         tf.rightViewMode = .always
         tf.loadView(placeholder: "Password", isSecureText: true,
                     rightViewImage: UIImage(named: "show-password")!)
+        tf.text = "123456"
         return tf
     }()
     lazy var confirmPasswordTextField: AppTextField = {
@@ -40,6 +37,7 @@ class RegisterView: BaseView {
         tf.rightViewMode = .always
         tf.loadView(placeholder: "Confirm Password", isSecureText: true,
                     rightViewImage: UIImage(named: "show-password")!)
+        tf.text = "123456"
         return tf
     }()
     lazy var showPasswordButton: UIButton = {
@@ -81,7 +79,7 @@ class RegisterView: BaseView {
 
 extension RegisterView: SetupCodeView {
     func buildViewHierarchy() {
-        addSubviews(titleLabel ,formContainerView, alreadyHaveAnAccountButton)
+        addSubviews(formContainerView, alreadyHaveAnAccountButton)
         formContainerView.addSubviews(
             emailTextField,
             passwordTextField,
@@ -91,15 +89,8 @@ extension RegisterView: SetupCodeView {
 
     func setupConstraints() {
         let safeArea: UILayoutGuide = self.safeAreaLayoutGuide
-        titleLabel.anchor(
-            top: safeArea.topAnchor,
-            leading: leadingAnchor,
-            bottom: nil,
-            trailing: trailingAnchor,
-            padding: .init(top: 15, left: 20, bottom: 0, right: 20)
-        )
         formContainerView.anchor(
-            top: titleLabel.bottomAnchor,
+            top: safeArea.topAnchor,
             leading: safeArea.leadingAnchor,
             bottom: nil,
             trailing: safeArea.trailingAnchor,
@@ -107,7 +98,7 @@ extension RegisterView: SetupCodeView {
             size: .init(width: 0, height: 460)
         )
         emailTextField.anchor(
-            top: formContainerView.bottomAnchor,
+            top: formContainerView.topAnchor,
             leading: formContainerView.leadingAnchor,
             bottom: nil,
             trailing: formContainerView.trailingAnchor,

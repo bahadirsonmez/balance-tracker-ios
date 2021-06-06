@@ -54,9 +54,14 @@ public struct AccountBalance: Codable {
     public var asset: String
     public var free: String
     public var locked: String
+    public var coinPrice: String?
 
     public var totalAmount: Double {
         return free.toDouble() + locked.toDouble()
+    }
+
+    public var totalPrice: Double {
+        return (Double(coinPrice ?? "0.0") ?? 0.0) * totalAmount
     }
 }
 

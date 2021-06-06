@@ -21,6 +21,9 @@ enum LaunchInstructor {
         //let tutorialWasShown = defaults.bool(forKey: "tutorialWasShown")
 //        let tutorialWasShown = true
 
+//        KeychainAccount.sharedAccount.clearAll()
+        print(KeychainAccount.sharedAccount.apiKey)
+        print(KeychainAccount.sharedAccount.secretKey)
         if KeychainAccount.sharedAccount.accessToken != nil {
             isAutorized = true
         }else {

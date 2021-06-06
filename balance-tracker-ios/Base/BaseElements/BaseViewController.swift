@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 //import SwiftMessages
 //import Lottie
 
@@ -34,8 +35,16 @@ class BaseViewController: UIViewController, CoordinatorNavigationControllerDeleg
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //view.backgroundColor = Constants.Colors.backgroundColor
         self.setupNavigationController()
+        self.checkUserAuthentication()
+    }
+
+    public func checkUserAuthentication() {
+        if Auth.auth().currentUser != nil {
+            return
+        } else {
+            self.onForceLogout?()
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,7 +53,7 @@ class BaseViewController: UIViewController, CoordinatorNavigationControllerDeleg
 
     // MARK: - Private methods
     private func setupNavigationController() {
-        navigationController?.navigationBar.hideHairline()
+//        navigationController?.navigationBar.hideHairline()
         let appearance = UINavigationBarAppearance()
         //appearance.backgroundColor = UIColor(rgba: "#f1eee4")
         appearance.backgroundColor = .white

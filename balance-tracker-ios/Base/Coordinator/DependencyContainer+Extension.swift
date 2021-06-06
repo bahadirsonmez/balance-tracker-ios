@@ -19,6 +19,12 @@ extension DependencyContainer: AuthViewControllerFactory {
         let registerVC = RegisterViewController(with: loginVM)
         return registerVC
     }
+
+    func instantiateBinanceAPIViewController() -> BinanceAPIViewController {
+        let loginVM = LoginViewModel(manager: self.loginManager)
+        let binanceVC = BinanceAPIViewController(with: loginVM)
+        return binanceVC
+    }
 }
 
 extension DependencyContainer: TabBarControllerFactory {
@@ -29,27 +35,25 @@ extension DependencyContainer: TabBarControllerFactory {
     }
 
     func instantiateBalanceViewController() -> BalanceViewController{
-        let binanceAPI = BinanceAPI(key: "AHYsxSFQXzlCeoByVELgCQes6xo7oYV5pLYtl03udOcNkpI8C3W8JtwrKJPLmD1x",
-                                    secret: "KZbsaybbUFTLPvXFbwzwIOk6VVs7kNr4TIvMD7OifzLAgTNAruLeB0xcpLHnVxN8")
-        let eventVM = BalanceViewModel(manager: self.balanceManager, binance: binanceAPI)
-        let eventVC = BalanceViewController()
+        let vm = BalanceViewModel(manager: self.balanceManager)
+        let vc = BalanceViewController()
 
         let image = Constants.Tab.tab0
         let selectedImage = Constants.Tab.tab0Selected
         let title = Constants.Tab.tab0Title
 
-        eventVC.tabBarItem = UITabBarItem(
+        vc.tabBarItem = UITabBarItem(
             title: title,
             image: image, tag: 0)
-        eventVC.tabBarItem.selectedImage = selectedImage
+        vc.tabBarItem.selectedImage = selectedImage
 
-        eventVC.viewModel = eventVM
-        return eventVC
+        vc.viewModel = vm
+        return vc
     }
 
-    func instantiateAccountViewController() -> AccountViewController{
-        let vm = AccountViewModel(manager: self.accountManager)
-        let vc = AccountViewController()
+    func instantiateFriendViewController() -> FriendsViewController{
+        let vm = FriendsViewModel(manager: self.friendsManager)
+        let vc = FriendsViewController()
 
         let image = Constants.Tab.tab1
         let selectedImage = Constants.Tab.tab1Selected
@@ -60,6 +64,13 @@ extension DependencyContainer: TabBarControllerFactory {
             image: image, tag: 1)
         vc.tabBarItem.selectedImage = selectedImage
 
+        vc.viewModel = vm
+        return vc
+    }
+
+    func instantiateFriendDetailViewController() -> FriendDetailViewController {
+        let vm = FriendsViewModel(manager: self.friendsManager)
+        let vc = FriendDetailViewController()
         vc.viewModel = vm
         return vc
     }

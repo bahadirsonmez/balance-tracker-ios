@@ -8,6 +8,12 @@
 import UIKit
 
 class BalanceCell: BaseCell {
+    var item: AccountBalance? {
+        didSet {
+            setupCell()
+        }
+    }
+
     private lazy var coinIcon: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
@@ -24,6 +30,12 @@ class BalanceCell: BaseCell {
         let label = UILabel()
         label.apply(style: .init())
         label.text = "$1.042\n1.900"
+        return label
+    }()
+    private lazy var totalPriceLabel: UILabel = {
+        let label = UILabel()
+        label.apply(style: .init(textAlignment: .right, textColor: colors.secondaryTextColor))
+        label.text = "$---"
         return label
     }()
     private lazy var seperator: UIView = {
@@ -44,12 +56,29 @@ class BalanceCell: BaseCell {
         self.coinIcon.image = UIImage(named: "\(item.asset.lowercased())") ?? UIImage(named: "crypto-coin")?.withTintColor(.random())
         self.titleLabel.text = item.asset
         self.totalHoldingsLabel.text = "\(item.totalAmount)"
+        if item.totalPrice != 0.0 {
+            self.totalPriceLabel.text = "$\(item.totalPrice)"
+        }
     }
+
+    func setupCell() {
+        guard let item = self.item else { return }
+        DispatchQueue.main.async {
+            self.coinIcon.image = UIImage(named: "\(item.asset.lowercased())") ?? UIImage(named: "crypto-coin")?.withTintColor(.random())
+            self.titleLabel.text = item.asset
+            self.totalHoldingsLabel.text = "\(item.totalAmount)"
+            if item.totalPrice != 0.0 {
+                self.totalPriceLabel.text = "$\(item.totalPrice)"
+            }
+
+        }
+    }
+
 }
 
 extension BalanceCell: SetupCodeView {
     func buildViewHierarchy() {
-        addSubviews(coinIcon, titleLabel, totalHoldingsLabel, seperator)
+        addSubviews(coinIcon, titleLabel, totalHoldingsLabel, totalPriceLabel, seperator)
     }
 
     func setupConstraints() {
@@ -65,10 +94,16 @@ extension BalanceCell: SetupCodeView {
         )
         titleLabel.centerY(to: self)
         totalHoldingsLabel.anchor(
+            top: coinIcon.topAnchor,
             trailing: trailingAnchor,
             padding: .init(top: 0, left: 0, bottom: 0, right: 15)
         )
-        totalHoldingsLabel.centerY(to: self)
+        totalPriceLabel.anchor(
+            bottom: coinIcon.bottomAnchor,
+            trailing: trailingAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 15)
+        )
+//        totalHoldingsLabel.centerY(to: self)
         seperator.anchor(
             leading: leadingAnchor,
             bottom: bottomAnchor,

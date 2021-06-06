@@ -19,14 +19,28 @@ final class AuthCoordinator: BaseCoordinator, CoordinatorFinishOutput {
 
     // MARK: - Private methods
 
+//    private func performMainFlow() {
+//        let coordinator = self.factory.instantiateTabBarCoordinator(router: self.router)
+//        coordinator.finishFlow = { [weak self, weak coordinator] in
+//            self?.removeDependency(coordinator)
+//            self?.start()
+//        }
+//        addDependency(coordinator)
+//        coordinator.start()
+//    }
+
     private func performMainFlow() {
-        let coordinator = self.factory.instantiateTabBarCoordinator(router: self.router)
-        coordinator.finishFlow = { [weak self, weak coordinator] in
-            self?.removeDependency(coordinator)
-            self?.start()
-        }
+        let (coordinator, module) = self.factory.makeTabbarCoordinator(router: router)
         addDependency(coordinator)
+        self.router.setRootModule(module, hideBar: false, animated: true)
         coordinator.start()
+    }
+
+
+    private func showAuthFlow() {
+        let authCoordinator = self.factory.instantiateAuthCoordinator(router: router)
+        addDependency(authCoordinator)
+        authCoordinator.start()
     }
 
     private func performLoginFlow() {
@@ -60,29 +74,23 @@ final class AuthCoordinator: BaseCoordinator, CoordinatorFinishOutput {
         }
         vc.onFinishRegister = { [unowned self] in
             if $0 {
-                self.performMainFlow()
+                self.showBinanceAPIViewController()
             }
             print("register done")
         }
         pushModule(vc)
     }
 
-//    private func showLoginViewController() {
-//        let vc = self.factory.instantiateLoginViewController()
-//        vc.onBack = { [unowned self] in
-//            self.popModule()
-//        }
-//        vc.onFinishLogin = { [unowned self] in
-//            if $0 {
-//                self.runMainFlow()
-//            }
-//            print("login done")
-//        }
-//        vc.onContinue = { [unowned self] in
-//            self.runMainFlow()
-//        }
-//        pushModule(vc)
-//    }
+    private func showBinanceAPIViewController() {
+        let vc = self.factory.instantiateBinanceAPIViewController()
+        vc.onBack = { [unowned self] in
+            self.popModule()
+        }
+        vc.onContinue = { [unowned self] in
+            self.performMainFlow()
+        }
+        pushModule(vc)
+    }
 
 
 //    private func showPhoneViewController() {

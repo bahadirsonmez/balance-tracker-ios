@@ -141,7 +141,7 @@ class BalanceAPIManager {
         }
     }
 
-    func call(router: BalanceRouter, handler: @escaping([BalanceItem]?, Error?) -> Void) {
+    func call(router: BalanceRouter, handler: @escaping(CoinPrices?, Error?) -> Void) {
         self.sessionManager.request(router).validate(statusCode: 200..<300).responseJSON { (response) in
             switch response.result {
             case .success:
@@ -150,7 +150,7 @@ class BalanceAPIManager {
                     print(jsonData)
                     let jsonDecoder = JSONDecoder()
                     do {
-                        let workoutCards = try jsonDecoder.decode([BalanceItem].self, from: jsonData)
+                        let workoutCards = try jsonDecoder.decode(CoinPrices.self, from: jsonData)
                         handler(workoutCards, nil)
                     }catch let error{
                         print(error.localizedDescription)

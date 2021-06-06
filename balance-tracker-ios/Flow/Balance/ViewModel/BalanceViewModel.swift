@@ -8,7 +8,7 @@ import Foundation
 
 class BalanceViewModel: NSObject {
     let manager: BalanceAPIManager
-    let binance: BinanceAPI
+    var binance: BinanceAPI!
 
     var isLoading: ((Bool) -> ())?
 
@@ -16,26 +16,28 @@ class BalanceViewModel: NSObject {
     var binanceAccount: Account?
     var binanceBalances = [AccountBalance]()
     var binanceBalancesWithTickerPrice = [AccountBalanceWithTickerPriceChange]()
-    var prices = [TickerPriceChange]()
+    var prices: CoinPrices?
     var btcPrice = 0.0
     
     //    var balanceList = [BalanceItem]()
     //    var balanceDetail: BalanceItem?
 
-    init(manager: BalanceAPIManager, binance: BinanceAPI) {
+    init(manager: BalanceAPIManager) {
         self.manager = manager
-        self.binance = binance
         super.init()
     }
 
     func getData(success: @escaping () -> Void,
                  failure: @escaping (Error) -> Void) {
+        self.binance = BinanceAPI(key: KeychainAccount.sharedAccount.apiKey!, secret: KeychainAccount.sharedAccount.secretKey!)
         self.isLoading?(true)
         binance.account { (account) in
             self.isLoading?(false)
             var list = [AccountBalance]()
             account.balances.forEach { (balance) in
-                if balance.asset == "TRY" || balance.asset == "USDT" {
+                if balance.asset == "TRY" ||
+                    balance.asset == "USDT" ||
+                    balance.asset.hasPrefix("LD") {
                     return
                 }
                 if balance.totalAmount > 0.0 {
@@ -44,7 +46,6 @@ class BalanceViewModel: NSObject {
             }
             self.binanceAccount = account
             self.binanceBalances = list
-            self.getAllPrices()
             success()
         } failure: { (error) in
             self.isLoading?(false)
@@ -52,29 +53,35 @@ class BalanceViewModel: NSObject {
         }
     }
 
-    private func getAllPrices() {
-        self.binanceBalances.forEach { (balance) in
-            var endString: String
-            if balance.asset == "BTC" || balance.asset.hasSuffix("UP") {
-                endString = "USDT"
+    func getAllPrices(success: @escaping () -> Void,
+                      failure: @escaping (Error) -> Void) {
+        self.manager.call(router: BalanceRouter.getCoinPrices) { (data, error) in
+            if error != nil {
+                guard let error = error else { return }
+                print(error.localizedDescription)
+                failure(error)
             } else {
-                endString = "BTC"
-            }
-            binance.tickerChange(symbol: "\(balance.asset)\(endString)") { (priceChange) in
-                let balanceWithTickerPrice = AccountBalanceWithTickerPriceChange(
-                    accountBalance: balance,
-                    tickerPriceChange: priceChange
-                )
-                self.binanceBalancesWithTickerPrice.append(balanceWithTickerPrice)
-            } failure: { (err) in
-                print(err)
+                self.prices = data
+                self.addPriceInfoToTheList()
+                success()
+//                print(self.prices)
             }
         }
     }
 
+    private func addPriceInfoToTheList() {
+        guard let coins = prices?.data?.coins else { return }
+        for i in binanceBalances.indices {
+            for y in coins.indices {
+                if binanceBalances[i].asset == coins[y].symbol! {
+                    binanceBalances[i].coinPrice = coins[y].price ?? "0.0"
+                }
+            }
+        }
+    }
 
     var numberOfItems: Int {
-        //        guard let count = self.binanceBalances.count else { return 0 }
         return self.binanceBalances.count
     }
 }
+

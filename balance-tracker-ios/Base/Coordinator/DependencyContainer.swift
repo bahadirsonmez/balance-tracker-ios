@@ -35,7 +35,7 @@ class DependencyContainer {
     lazy var loginManager = Auth.auth()
 //    lazy var loginManager = LoginAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
     lazy var balanceManager = BalanceAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
-    lazy var accountManager = AccountAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
+    lazy var friendsManager = FriendsAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
     lazy var profileManager = ProfileAPIManager(sessionManager: self.sessionManager, retrier: self.retrier)
 
     // MARK: - Public func
@@ -97,11 +97,11 @@ extension DependencyContainer: CoordinatorFactoryProtocol {
         return BalanceCoordinator(controller: BalanceViewController(), router: router, factory: self as Factory)
     }
 
-    func instantiateAccountCoordinator(router: RouterProtocol) -> AccountCoordinator {
-        return AccountCoordinator(controller: AccountViewController(), router: router, factory: self as Factory)
+    func instantiateFriendsCoordinator(router: RouterProtocol) -> FriendsCoordinator {
+        return FriendsCoordinator(controller: FriendsViewController(), router: router, factory: self as Factory)
     }
 
-    func instantiateProfileMapCoordinator(router: RouterProtocol) -> ProfileCoordinator {
+    func instantiateProfileCoordinator(router: RouterProtocol) -> ProfileCoordinator {
         return ProfileCoordinator(controller: ProfileViewController(), router: router, factory: self as Factory)
     }
 

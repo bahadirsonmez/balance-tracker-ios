@@ -27,20 +27,20 @@ final class MainTabBarCoordinator: BaseCoordinator, CoordinatorFinishOutput{
     private func setupTabBarController() {
         let tabBarController = factory.instantiateTabBarController()
         let balanceController = factory.instantiateBalanceViewController()
-        let accountController = factory.instantiateAccountViewController()
+        let friendsController = factory.instantiateFriendViewController()
         let profileController = factory.instantiateProfileViewController()
 
         tabBarController.viewControllers = [
             balanceController,
-            accountController,
+            friendsController,
             profileController
         ]
 
         tabBarController.toBalance = {[weak self] in
             self?.showNextModule(balanceController)
         }
-        tabBarController.toAccount = {[weak self] in
-            self?.showNextModule(accountController)
+        tabBarController.toFriends = {[weak self] in
+            self?.showNextModule(friendsController)
         }
         tabBarController.toProfile = {[weak self] in
             self?.showNextModule(profileController)
@@ -61,8 +61,8 @@ final class MainTabBarCoordinator: BaseCoordinator, CoordinatorFinishOutput{
         switch controller {
         case controller as BalanceViewController:
             tabBarCoordinator = BalanceCoordinator(controller: controller as! BalanceViewController, router: router, factory: factory)
-        case controller as AccountViewController:
-            tabBarCoordinator = AccountCoordinator(controller: controller as! AccountViewController, router: router, factory: factory)
+        case controller as FriendsViewController:
+            tabBarCoordinator = FriendsCoordinator(controller: controller as! FriendsViewController, router: router, factory: factory)
         case controller as ProfileViewController:
             tabBarCoordinator = ProfileCoordinator(controller: controller as! ProfileViewController, router: router, factory: factory)
         default:

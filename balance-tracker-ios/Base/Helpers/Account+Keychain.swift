@@ -15,6 +15,14 @@ public class KeychainAccount {
     public let AccountRefreshTokenKeychainKey = "refresh_token"
     public let UserAgreementKeychainKey = "user_agreement"
 
+    // MARK: - Binance API Key
+//    public let binanceAPIKeyService = "BinanceAPIKeyService"
+    public let AccountBinanceAPIKey = "binance_api_key"
+
+    // MARK: - Binance Secret Key
+//    public let binanceSecretKeyService = "BinanceSecretKeyService"
+    public let AccountBinanceSecretKey = "binance_secret_key"
+
     public let rentStateKey = "rent_state"
 
     public let uuidService = "uuid_service"
@@ -363,11 +371,107 @@ public class KeychainAccount {
         }
     }
 
+    public var apiKey: String? {
+        get {
+            let keychain = Keychain(service: AccountKeychainService)
+            do {
+                guard let key = try keychain.get(AccountBinanceAPIKey) else { return "-1" }
+                return key
+            } catch {
+                return nil
+            }
+        }
+    }
+
+    public func setApiKey (_ isSet: String?) {
+        let keychain = Keychain(service: AccountKeychainService)
+        if let isSet = isSet {
+            do {
+                try keychain.set(isSet, key: AccountBinanceAPIKey)
+                print("set binance apikey")
+                print(isSet)
+            } catch {
+                print("failed to set binance apikey")
+            }
+        } else {
+            do {
+                try keychain.remove(AccountBinanceAPIKey)
+                print("removed binance apikey")
+            } catch {
+                print("failed to remove binance apikey")
+            }
+        }
+    }
+
+    public func clearApiKey(){
+        let keychain = Keychain(service: AccountKeychainService)
+        let isSet = self.apiKey
+        if isSet != nil {
+            do {
+                try keychain.remove(AccountBinanceAPIKey)
+                print("apikey removed")
+            } catch {
+                print("failed to remove binance apikey")
+            }
+        }
+    }
+
+    public var secretKey: String? {
+        get {
+            let keychain = Keychain(service: AccountKeychainService)
+            do {
+                guard let key = try keychain.get(AccountBinanceSecretKey) else { return "-1" }
+                return key
+            } catch {
+                return nil
+            }
+        }
+    }
+
+    public func setSecretKey (_ isSet: String?) {
+        let keychain = Keychain(service: AccountKeychainService)
+        if let isSet = isSet {
+            do {
+                try keychain.set(isSet, key: AccountBinanceSecretKey)
+                print("set binance secret")
+                print(isSet)
+            } catch {
+                print("failed to set binance secret")
+            }
+        } else {
+            do {
+                try keychain.remove(AccountBinanceSecretKey)
+                print("removed binance secret")
+            } catch {
+                print("failed to remove binance secret")
+            }
+        }
+    }
+
+    public func clearSecretKey(){
+        let keychain = Keychain(service: AccountKeychainService)
+        let isSet = self.secretKey
+        if isSet != nil {
+            do {
+                try keychain.remove(AccountBinanceSecretKey)
+                print("secret removed")
+            } catch {
+                print("failed to remove binance secret")
+            }
+        }
+    }
+
     public func clearAll() {
         clearAccessToken()
         clearRefreshToken()
         clearUserAgreement()
         clearAnynomousToken()
+        clearBinanceKeys()
         //UserDefaultHelper.deletaAll()
+    }
+
+    public func clearBinanceKeys() {
+        clearApiKey()
+        clearSecretKey()
     }
 }

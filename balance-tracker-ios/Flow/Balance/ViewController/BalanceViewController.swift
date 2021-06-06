@@ -13,6 +13,8 @@ class BalanceViewController: BaseViewController {
 
     // MARK: - Vars & Lets
     private let thisView: BalanceView = BalanceView()
+    private let emptyView: FriendsView = FriendsView()
+
     private lazy var navContainer: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -22,7 +24,6 @@ class BalanceViewController: BaseViewController {
     private lazy var navTitle: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-//        label.textColor = Constants.Colors.mainTextColor
         label.numberOfLines = 0
         label.textAlignment = .center
         label.text = "Your Portfolio"
@@ -41,47 +42,42 @@ class BalanceViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        view.backgroundColor = .white
         bindActions()
         bindViewModel()
-        getAccount()
-        view.backgroundColor = .white
+//        setupUI()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupUI()
         self.navigationController?.navigationBar.isHidden = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //self.navigationController?.navigationBar.isHidden = false
+
     }
 
     private func getAccount() {
         self.viewModel.getData {
-//            self.getPrices()
             self.thisView.loadView(self.viewModel)
+            self.viewModel.getAllPrices {
+                self.thisView.loadView(self.viewModel)
+            } failure: { (error) in
+                self.showAlert("Error", body: error.localizedDescription)
+            }
+
         } failure: { (error) in
             self.showAlert("Error", body: error.localizedDescription)
         }
-    }
 
-//    private func getPrices() {
-//        self.viewModel.getAllPrices {
-//            self.thisView.loadView(self.viewModel)
-//            print("hey",self.viewModel.prices)
-//            print("success")
-//        } failure: { (error) in
-//            self.showAlert("Error", body: error.localizedDescription)
-//        }
-//    }
+    }
 
     private func setupUI() {
         let safeArea = self.view.safeAreaLayoutGuide
         self.view.addSubview(navContainer)
         navContainer.addSubviews(navTitle, searchButton)
-        self.view.addSubview(thisView)
         navContainer.anchor(top: self.view.topAnchor,
                         leading: safeArea.leadingAnchor,
                         bottom: nil,
@@ -97,15 +93,27 @@ class BalanceViewController: BaseViewController {
                            padding: .init(top: 0, left: 0, bottom: 0, right: 20),
                            size: .init(width: 24, height: 24))
         searchButton.centerY(to: navContainer)
-        thisView.anchor(top: navContainer.bottomAnchor,
-                        leading: safeArea.leadingAnchor,
-                        bottom: safeArea.bottomAnchor,
-                        trailing: safeArea.trailingAnchor,
-                        padding: .init(top: 0, left: 0, bottom: 0, right: 0))
+        if self.account.apiKey == "-1" {
+            self.view.addSubview(emptyView)
+            emptyView.anchor(top: navContainer.bottomAnchor,
+                            leading: safeArea.leadingAnchor,
+                            bottom: safeArea.bottomAnchor,
+                            trailing: safeArea.trailingAnchor,
+                            padding: .init(top: 0, left: 0, bottom: 0, right: 0))
+        } else {
+            self.view.addSubview(thisView)
+            thisView.anchor(top: navContainer.bottomAnchor,
+                            leading: safeArea.leadingAnchor,
+                            bottom: safeArea.bottomAnchor,
+                            trailing: safeArea.trailingAnchor,
+                            padding: .init(top: 0, left: 0, bottom: 0, right: 0))
+            self.getAccount()
+        }
     }
 
+
     private func bindViewModel() {
-        self.viewModel.isLoading = {(loading) in
+        self.viewModel.isLoading = { (loading) in
             DispatchQueue.main.async {
                 if loading {
                     self.showActivityIndicator()

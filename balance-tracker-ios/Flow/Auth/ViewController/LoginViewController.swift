@@ -23,6 +23,7 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = colors.backgroundColor
+        self.title = "Login"
         bindViewModel()
         bindActions()
     }
@@ -31,13 +32,14 @@ class LoginViewController: BaseViewController {
         super.viewWillAppear(animated)
 //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.isHidden = true
     }
 
 
@@ -54,7 +56,7 @@ class LoginViewController: BaseViewController {
     private func bindActions() {
         thisView.loginTapped = { (email, password) in
 //            self.onFinishLogin?(true)
-            self.thisView.loginButton.loadingIndicator(false, color: .white)
+//            self.thisView.loginButton.loadingIndicator(false, color: .white)
             self.viewModel.loginWithEmail(email: email, password: password) {
                 self.onFinishLogin?(true)
             } failure: { (error) in

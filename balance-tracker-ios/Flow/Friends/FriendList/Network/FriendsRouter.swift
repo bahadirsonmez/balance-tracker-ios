@@ -1,5 +1,5 @@
 //
-//  AccountRouter.swift
+//  FriendsRouter.swift
 //  balance-tracker-ios
 //
 //  Created by Bahadir Sonmez on 19.02.2021.
@@ -8,7 +8,7 @@
 import Alamofire
 import Foundation
 
-enum AccountRouter: URLRequestConvertible {
+enum FriendsRouter: URLRequestConvertible {
     case bulkUpload(parameters: Parameters)
 
     static let apiURLString = "Constants.baseURL"
@@ -28,7 +28,7 @@ enum AccountRouter: URLRequestConvertible {
     }
 
     public func asURLRequest() throws -> URLRequest {
-        let url = try AccountRouter.apiURLString.asURL()
+        let url = try FriendsRouter.apiURLString.asURL()
         var urlRequest = URLRequest(url: (url.appendingPathComponent(path)))
         //let newURLRequest = urlRequest.description.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         let newURLRequest = urlRequest.description.removingPercentEncoding
